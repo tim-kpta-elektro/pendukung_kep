@@ -70,4 +70,11 @@ class KpModel extends CI_Model{
         return $this->db->get()->row();
     }
 
+    public function pelaksanaankp($session){
+        $this->db->select('*');
+        $this->db->from('kp');
+        $this->db->join('mahasiswa','mahasiswa_id = id_mahasiwa');
+    }
+
+
 }

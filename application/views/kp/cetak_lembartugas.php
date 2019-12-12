@@ -89,7 +89,7 @@
         <table width="100%" class="table">
             <tr>
                 <td style="width: 20%; text-align: center;">
-                    <img src="http://localhost/kpta/assets/media/logo-uns.png" style="height: 130px;"/>
+                    <img src="<?php echo base_url('assets/media/logo-uns.png')?>" style="height: 130px;"/>
                 </td>
                 <td style="width: 80%;" align="center">
                     KEMENTRIAN RISET, TEKNOLOGI DAN PENDIDIKAN TINGGI<br />
@@ -113,37 +113,37 @@
                   <tr>
                       <td style="width: 40%;">Nama Mahasiswa</td>
                       <td style="width: 3%;">:</td>
-                      <td style="width: 57%;"><strong>{{$data->nama_mhs}}</strong></td>
+                      <td style="width: 57%;"><strong><?php echo $data->nama_mhs?></strong></td>
                   </tr>
                   <tr>
                       <td>NIM</td>
                       <td>:</td>
-                      <td><strong>{{$data->nim}}</strong></td>
+                      <td><strong><?php echo $data->nim?></strong></td>
                   </tr>
                   <tr>
                       <td>Dosen Pembimbing</td>
                       <td>:</td>
-                      <td><strong>{{$data->nama_dosen}}</strong></td>
+                      <td><strong><?php echo $data->nama_dosen?></strong></td>
                   </tr>
                   <tr>
                       <td>NIP</td>
                       <td>:</td>
-                      <td><strong>{{$data->nip}}</strong></td>
+                      <td><strong><?php echo $data->nip?></strong></td>
                   </tr>
                   <tr>
                       <td>Tempat Kerja Praktek (KP)</td>
                       <td>:</td>
-                      <td><strong>{{$data->perusahaan_nama}}</strong></td>
+                      <td><strong><?php echo $data->perusahaan_nama?></strong></td>
                   </tr>
                   <tr>
                       <td>Alamat Tempat KP</td>
                       <td>:</td>
-                      <td><strong>{{$data->perusahaan_almt}}</strong></td>
+                      <td><strong><?php echo $data->perusahaan_almt?></strong></td>
                   </tr>
                   <tr>
                       <td>Tanggal Kerja Praktek (KP)</td>
                       <td>:</td>
-                      <td><strong>{{$data->tgl_mulai_kp}} sd. {{$data->tgl_selesai_kp}} </strong></td>
+                      <td><strong><?php echo $data->tgl_mulai_kp?> sd. <?php echo $data->tgl_selesai_kp?> </strong></td>
                   </tr>
               </table>
               <br>
@@ -158,7 +158,7 @@
                 <tr>
                     <td style="width: 50%;"></td>
                     <td style="width: 50%;">Surakarta, _______________<br>Dosen Pembimbing Kerja Praktek<br><br><br><br><br>
-                    <b>{{$data->nama_dosen}}</b><br>NIP. <b>{{$data->nip}}</b></td>
+                    <b><?php echo $data->nama_dosen?></b><br>NIP. <b><?php echo $data->nip?></b></td>
                 </tr>
               </table>      
          </div>     

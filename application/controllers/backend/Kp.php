@@ -76,4 +76,26 @@ class Kp extends MY_Controller {
 		$this->pdf->filename = "permohonan_kp.pdf";
 		$this->pdf->load_view('kp/cetak_surat',['data' => $data]);
 	}
+
+	public function cetak_lmbrtugas(){
+		$session = $_SESSION['nim'];
+		$data = $this->KpModel->pengajuankp($session);
+
+		$this->pdf->setPaper('A4','portrait');
+		$this->pdf->set_option('isRemoteEnabled',true);
+		$this->pdf->filename = "lembar_tugas.pdf";
+		$this->pdf->load_view('kp/cetak_lembartugas',['data' => $data]);
+	}
+
+	public function cetak_formnilai(){
+		$session = $_SESSION['nim'];
+		$data = $this->KpModel->pengajuankp($session);
+
+		$this->pdf->setPaper('A4','portrait');
+		$this->pdf->set_option('isRemoteEnabled',true);
+		$this->pdf->filename = "form_nilai.pdf";
+		$this->pdf->load_view('kp/cetak_formnilai',['data' => $data]);
+	}
+
+	
 }
