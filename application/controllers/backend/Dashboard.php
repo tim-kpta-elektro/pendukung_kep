@@ -1,10 +1,10 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
- 
-class Belajar extends CI_Controller {
-	
-	function dashboard(){
+
+class Dashboard extends MY_Controller {
+
+    public function index(){
 		$this->load->view('dashboard');
 	}
- 
+
 }

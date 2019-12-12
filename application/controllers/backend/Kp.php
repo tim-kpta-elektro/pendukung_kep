@@ -1,0 +1,79 @@
+<?php
+defined('BASEPATH') OR exit('No direct script access allowed');
+use mikehaertl\wkhtmlto\Pdf;
+ 
+class Kp extends MY_Controller {
+	
+	public function __construct(){
+		parent::__construct();
+
+		$this->load->model('KpModel');
+		$this->load->library('form_validation');
+	}
+	
+	function index(){
+
+		$session = $_SESSION['nim'];
+		$result= $this->KpModel->mahasiswa($session);
+		$pending = $this->KpModel->pending($session);
+		$setuju = $this->KpModel->setuju($session);
+		$tolak = $this->KpModel->tolak($session);
+
+		if($setuju != NULL){
+			$this->load->view('kp/kp_setuju',['setuju' => $setuju]);
+		}else if($pending != NULL){
+			$this->load->view('kp/kp_pending',['data' => $pending]);
+		}elseif($tolak != NULL){
+			$this->load->view('kp/kp_tolak',['tolak' => $tolak]);
+		}else if($result != NULL){
+			//var_dump($result);
+			$this->load->view('kp/kp_pengajuan',['data' => $result]);
+		}else{
+			$this->load->view('kp/error_pem');
+		}
+	}
+
+	public function pengajuan_kp(){
+		$validation = $this->form_validation;
+
+		//$validation->set_rules('mahasiswa_id','Mahasiswa Id','required');
+		$validation->set_rules('perusahaan_nama','Perusahaan Nama','required');
+
+		if($validation->run() == FALSE){
+			redirect('pengajuankp');
+		}else{
+			$this->KpModel->save_kp();
+			redirect('dashboard');
+		}
+	}
+
+	public function cetak_pengajuankp(){
+		$session = $_SESSION['nim'];
+		$data = $this->KpModel->pengajuankp($session);
+
+		$this->pdf->setPaper('A4','potrait');
+		$this->pdf->set_option('isRemoteEnabled',true);
+		$this->pdf->filename = "pengajuan_kp.pdf";
+		$this->pdf->load_view('kp/cetak_pengajuankp',['data' => $data]);
+	}
+
+	public function cetak_form(){
+		$session = $_SESSION['nim'];
+		$data = $this->KpModel->pengajuankp($session);
+
+		$this->pdf->setPaper('A4', 'potrait');
+		$this->pdf->set_option('isRemoteEnabled',true);
+		$this->pdf->filename = "form_konsul_kp.pdf";
+		$this->pdf->load_view('kp/cetak_form',['data' => $data]);
+	}
+
+	public function cetak_surat(){
+		$session = $_SESSION['nim'];
+		$data = $this->KpModel->pengajuankp($session);
+
+		$this->pdf->setPaper('A4','portrait');
+		$this->pdf->set_option('isRemoteEnabled',true);
+		$this->pdf->filename = "permohonan_kp.pdf";
+		$this->pdf->load_view('kp/cetak_surat',['data' => $data]);
+	}
+}

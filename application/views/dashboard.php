@@ -52,7 +52,7 @@
             'main-content-boxed'                        Full width Main Content with a specific maximum width (screen width > 1200px)
             'main-content-narrow'                       Full width Main Content with a percentage width (screen width > 1200px)
         -->
-        <div id="page-container" class="sidebar-o sidebar-inverse enable-page-overlay side-scroll page-header-fixed page-header-modern main-content-boxed">
+        <div id="page-container" class="sidebar-o enable-cookies sidebar-inverse enable-page-overlay side-scroll page-header-fixed page-header-modern main-content-boxed">
             <!-- Side Overlay-->
             <aside id="side-overlay">
                 <?php $this->load->view('layouts/aside.php') ?>
@@ -60,17 +60,6 @@
             <!-- END Side Overlay -->
 
             <!-- Sidebar -->
-            <!--
-                Helper classes
-
-                Adding .sidebar-mini-hide to an element will make it invisible (opacity: 0) when the sidebar is in mini mode
-                Adding .sidebar-mini-show to an element will make it visible (opacity: 1) when the sidebar is in mini mode
-                    If you would like to disable the transition, just add the .sidebar-mini-notrans along with one of the previous 2 classes
-
-                Adding .sidebar-mini-hidden to an element will hide it when the sidebar is in mini mode
-                Adding .sidebar-mini-visible to an element will show it only when the sidebar is in mini mode
-                    - use .sidebar-mini-visible-b if you would like to be a block when visible (display: block)
-            -->
             <nav id="sidebar">
                 <?php $this->load->view('layouts/sidebar.php') ?>
             </nav>
@@ -652,7 +641,7 @@
         <!-- END Page Container -->
 
         <!-- Onboarding Modal functionality is initialized in js/pages/be_pages_dashboard.min.js which was auto compiled from _es6/pages/be_pages_dashboard.js -->
-            <?php $this->load->view('layouts/modal.php') ?>
+            <?php //$this->load->view('layouts/modal.php') ?>
         <!-- END Onboarding Modal -->
 
 

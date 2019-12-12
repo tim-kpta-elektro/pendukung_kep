@@ -11,6 +11,9 @@
 <!-- Page JS Plugins -->
 <script src="<?php echo base_url();?>assets/js/plugins/chartjs/Chart.bundle.min.js"></script>
 <script src="<?php echo base_url();?>assets/js/plugins/slick/slick.min.js"></script>
+<script src="assets/js/plugins/jquery-validation/jquery.validate.min.js"></script>
 
 <!-- Page JS Code -->
 <script src="<?php echo base_url();?>assets/js/pages/be_pages_dashboard.min.js"></script>
+<script src="assets/js/pages/op_auth_signin.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>

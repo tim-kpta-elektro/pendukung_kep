@@ -54,7 +54,12 @@ $route['404_override'] = '';
 $route['translate_uri_dashes'] = FALSE;
 
 //Route 
-$route['dashboard'] = 'welcome/dashboard';
+$route['dashboard'] = 'backend/dashboard';
 
 //Route Kerja Praktek
-$route['pengajuan/kp'] = 'kp/pengajuan';
+$route['pengajuankp'] = 'backend/kp';
+$route['kp/cetak_pengajuankp'] = 'backend/kp/cetak_pengajuankp';
+$route['kp/cetak_form'] = 'backend/kp/cetak_form';
+
+//Route Login
+$route['login'] = 'auth/login';

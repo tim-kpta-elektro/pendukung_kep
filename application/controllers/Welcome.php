@@ -20,15 +20,11 @@ class Welcome extends CI_Controller {
 	 */
 	public function index()
 	{
-		$this->load->view('welcome_message');
+		if($this->session->userdata('authenticated')){ //Jika user sudah login (Session authenticated ditemukan)
+			redirect('dashboard'); //Redirect ke halaman Dashboard
+		}else{
+			$this->load->view('guest_dashboard'); //Load view Dashboard Guest
+		}
 	}
 
-	public function dashboard(){
-		$this->load->view('dashboard');
-	}
-
-	public function test()
-	{
-		hello;
-	}
 }
