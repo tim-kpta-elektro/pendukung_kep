@@ -60,6 +60,14 @@ $route['dashboard'] = 'backend/dashboard';
 $route['pengajuankp'] = 'backend/kp';
 $route['kp/cetak_pengajuankp'] = 'backend/kp/cetak_pengajuankp';
 $route['kp/cetak_form'] = 'backend/kp/cetak_form';
+$route['kp/cetak_lmbrtugas'] = 'backend/kp/cetak_lmbrtugas';
+$route['kp/cetak_formnilai'] = 'backend/kp/cetak_formnilai';
+
+//Route Seminar Kerja Praktek
+$route['pengajuansemkp'] = 'backend/semkp';
+$route['semkp/cetak_pengajuansemkp'] = 'backend/semkp/cetak_pengajuansemkp';
+$route['semkp/cetak_undangan'] = 'backend/semkp/cetak_undangan';
+$route['semkp/cetak_daftarhadir'] = 'backend/semkp/cetak_daftarhadir';
 
 //Route Login
 $route['login'] = 'auth/login';

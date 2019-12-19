@@ -1,6 +1,5 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
-use mikehaertl\wkhtmlto\Pdf;
  
 class Kp extends MY_Controller {
 	
@@ -33,10 +32,12 @@ class Kp extends MY_Controller {
 		}
 	}
 
-	public function pengajuan_kp(){
+	public function store(){
 		$validation = $this->form_validation;
 
 		//$validation->set_rules('mahasiswa_id','Mahasiswa Id','required');
+		$validation->set_rules('sks','SKS','required');
+		$validation->set_rules('ipk','IPK','required');
 		$validation->set_rules('perusahaan_nama','Perusahaan Nama','required');
 
 		if($validation->run() == FALSE){
@@ -81,21 +82,29 @@ class Kp extends MY_Controller {
 		$session = $_SESSION['nim'];
 		$data = $this->KpModel->pengajuankp($session);
 
-		$this->pdf->setPaper('A4','portrait');
-		$this->pdf->set_option('isRemoteEnabled',true);
-		$this->pdf->filename = "lembar_tugas.pdf";
-		$this->pdf->load_view('kp/cetak_lembartugas',['data' => $data]);
+		if($data != null){
+			$this->pdf->setPaper('A4','portrait');
+			$this->pdf->set_option('isRemoteEnabled',true);
+			$this->pdf->filename = "lembar_tugas.pdf";
+			$this->pdf->load_view('kp/cetak_lembartugas',['data' => $data]);
+		}else{
+			$this->load->view('kp/error_pengajuan');
+		}
 	}
 
 	public function cetak_formnilai(){
 		$session = $_SESSION['nim'];
-		$data = $this->KpModel->pengajuankp($session);
+		$data = $this->KpModel->pelaksanaankp($session);
 
-		$this->pdf->setPaper('A4','portrait');
-		$this->pdf->set_option('isRemoteEnabled',true);
-		$this->pdf->filename = "form_nilai.pdf";
-		$this->pdf->load_view('kp/cetak_formnilai',['data' => $data]);
+		if($data != NULL){
+			$this->pdf->setPaper('A4','portrait');
+			$this->pdf->set_option('isRemoteEnabled',true);
+			$this->pdf->filename = "form_nilai.pdf";
+			$this->pdf->load_view('kp/cetak_formnilai',['data' => $data]);
+		}else{
+			$this->load->view('kp/error_pengajuan');
+		}
 	}
 
-	
+
 }

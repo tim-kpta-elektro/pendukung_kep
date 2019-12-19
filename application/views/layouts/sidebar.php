@@ -38,18 +38,18 @@
     <div class="content-side content-side-full content-side-user px-10 align-parent">
         <!-- Visible only in mini mode -->
         <div class="sidebar-mini-visible-b align-v animated fadeIn">
-            <img class="img-avatar img-avatar32" src="<?php echo base_url();?>assets/media/avatars/avatar15.jpg" alt="">
+            <img class="img-avatar img-avatar32" src="<?php echo base_url('assets/media/avatars/avatar10.jpg');?>" alt="">
         </div>
         <!-- END Visible only in mini mode -->
 
         <!-- Visible only in normal mode -->
         <div class="sidebar-mini-hidden-b text-center">
             <a class="img-link" href="be_pages_generic_profile.html">
-                <img class="img-avatar" src="<?php echo base_url();?>assets/media/avatars/avatar15.jpg" alt="">
+                <img class="img-avatar" src="<?php echo base_url('assets/media/avatars/avatar10.jpg');?>" alt="">
             </a>
             <ul class="list-inline mt-10">
                 <li class="list-inline-item">
-                    <a class="link-effect text-dual-primary-dark font-size-xs font-w600 text-uppercase" href="be_pages_generic_profile.html"><?php echo $_SESSION['username'];?></a>
+                    <a class="link-effect text-dual-primary-dark font-size-xs font-w600 text-uppercase" href="#"><?php echo $_SESSION['username'];?></a>
                 </li>
                 <li class="list-inline-item">
                     <!-- Layout API, functionality initialized in Template._uiApiLayout() -->
@@ -84,19 +84,19 @@
                     <i class="si si-cup"></i><span class="sidebar-mini-hide">Pengajuan KP</span>
                 </a>
             </li>
-            <li class="{{ request()->is('kp/pelaksanaan/*') ? ' open' : '' }}">
+            <li class="<?php if($this->uri->segment(1)=="kp"){echo "open";} ?>">
                 <a class="nav-submenu" data-toggle="nav-submenu" href="#"><i class="si si-bulb"></i><span class="sidebar-mini-hide">Pelaksanaan Kerja Praktek</span></a>
                 <ul>
                     <li>
-                        <a class="{{ request()->is('kp/pelaksanaan/cetak_lmbr_tugas') ? ' active' : '' }}" href="#">Cetak Lembar Tugas KP</a>
+                        <a class="<?php if($this->uri->segment(1)=="cetak_lmbrtugas"){echo "active";} ?>" href="<?php echo base_url('kp/cetak_lmbrtugas') ?>">Cetak Lembar Tugas KP</a>
                     </li>
                     <li>
-                        <a class="{{ request()->is('kp/pelaksanaan/cetak_form_nilai') ? ' active' : '' }}" href="#">Cetak Form Nilai KP</a>
+                        <a class="<?php if($this->uri->segment(1)=="cetak_formnilai"){echo "active";} ?>" href="<?php echo base_url('kp/cetak_formnilai')?>">Cetak Form Nilai KP</a>
                     </li>
                 </ul>
             </li>
             <li>
-                <a class="{{ request()->is('kp/seminar') ? ' active' : '' }}" href="#">
+                <a class="<?php if($this->uri->segment(1)=="pengajuansemkp"){echo "active";} ?>" href="<?php echo base_url('pengajuansemkp')?>">
                     <i class="si si-cup"></i><span class="sidebar-mini-hide">Seminar KP</span>
                 </a>
             </li>
