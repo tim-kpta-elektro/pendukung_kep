@@ -134,7 +134,7 @@
                                     <div class="float-left mt-10 d-none d-sm-block">
                                         <i class="si si-trophy fa-3x text-earth-light"></i>
                                     </div>
-                                    <div class="font-size-h3 font-w600 text-white" data-toggle="countTo" data-speed="1000" data-to="2600">0</div>
+                                    <div class="font-size-h3 font-w600 text-white" data-toggle="countTo" data-speed="1000" data-to="<?php echo $jumlahmhs ?>">0</div>
                                     <div class="font-size-sm font-w600 text-uppercase text-white-op">Total Mahasiswa</div>
                                 </div>
                             </a>
@@ -145,7 +145,7 @@
                                     <div class="float-left mt-10 d-none d-sm-block">
                                         <i class="si si-envelope-letter fa-3x text-elegance-light"></i>
                                     </div>
-                                    <div class="font-size-h3 font-w600 text-white" data-toggle="countTo" data-speed="1000" data-to="260">0</div>
+                                    <div class="font-size-h3 font-w600 text-white" data-toggle="countTo" data-speed="1000" data-to="<?php echo $mhsaktif ?>">0</div>
                                     <div class="font-size-sm font-w600 text-uppercase text-white-op">Mahasiswa Aktif</div>
                                 </div>
                             </a>
@@ -156,7 +156,7 @@
                                     <div class="float-left mt-10 d-none d-sm-block">
                                         <i class="si si-fire fa-3x text-corporate-light"></i>
                                     </div>
-                                    <div class="font-size-h3 font-w600 text-white" data-toggle="countTo" data-speed="1000" data-to="4252">0</div>
+                                    <div class="font-size-h3 font-w600 text-white" data-toggle="countTo" data-speed="1000" data-to="<?php echo $alumni ?>">0</div>
                                     <div class="font-size-sm font-w600 text-uppercase text-white-op">Alumni</div>
                                 </div>
                             </a>

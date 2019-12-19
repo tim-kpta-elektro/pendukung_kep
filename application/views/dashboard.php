@@ -85,7 +85,7 @@
                                         <i class="si si-bag fa-2x text-primary-light"></i>
                                     </div>
                                     <div class="font-size-h3 font-w600 text-primary" data-toggle="countTo" data-speed="1000" data-to="1500">0</div>
-                                    <div class="font-size-sm font-w600 text-uppercase text-muted">Sales</div>
+                                    <div class="font-size-sm font-w600 text-uppercase text-muted">Pengunjung</div>
                                 </div>
                             </a>
                         </div>
@@ -95,8 +95,8 @@
                                     <div class="float-right mt-15 d-none d-sm-block">
                                         <i class="si si-wallet fa-2x text-earth-light"></i>
                                     </div>
-                                    <div class="font-size-h3 font-w600 text-earth">$<span data-toggle="countTo" data-speed="1000" data-to="780">0</span></div>
-                                    <div class="font-size-sm font-w600 text-uppercase text-muted">Earnings</div>
+                                    <div class="font-size-h3 font-w600 text-earth" data-toggle="countTo" data-speed="1000" data-to="<?php echo $jumlahmhs ?>">0</div>
+                                    <div class="font-size-sm font-w600 text-uppercase text-muted">Jumlah Mahasiswa</div>
                                 </div>
                             </a>
                         </div>
@@ -106,8 +106,8 @@
                                     <div class="float-right mt-15 d-none d-sm-block">
                                         <i class="si si-envelope-open fa-2x text-elegance-light"></i>
                                     </div>
-                                    <div class="font-size-h3 font-w600 text-elegance" data-toggle="countTo" data-speed="1000" data-to="15">0</div>
-                                    <div class="font-size-sm font-w600 text-uppercase text-muted">Messages</div>
+                                    <div class="font-size-h3 font-w600 text-elegance" data-toggle="countTo" data-speed="1000" data-to="<?php echo $mhsaktif ?>">0</div>
+                                    <div class="font-size-sm font-w600 text-uppercase text-muted">Mahasiswa Aktif</div>
                                 </div>
                             </a>
                         </div>
@@ -117,8 +117,8 @@
                                     <div class="float-right mt-15 d-none d-sm-block">
                                         <i class="si si-users fa-2x text-pulse"></i>
                                     </div>
-                                    <div class="font-size-h3 font-w600 text-pulse" data-toggle="countTo" data-speed="1000" data-to="4252">0</div>
-                                    <div class="font-size-sm font-w600 text-uppercase text-muted">Online</div>
+                                    <div class="font-size-h3 font-w600 text-pulse" data-toggle="countTo" data-speed="1000" data-to="<?php echo $alumni ?>">0</div>
+                                    <div class="font-size-sm font-w600 text-uppercase text-muted">Alumni</div>
                                 </div>
                             </a>
                         </div>

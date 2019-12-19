@@ -18,12 +18,24 @@ class Welcome extends CI_Controller {
 	 * map to /index.php/welcome/<method_name>
 	 * @see https://codeigniter.com/user_guide/general/urls.html
 	 */
+	public function __construct(){
+		parent::__construct();
+
+		$this->load->model('DashboardModel');
+	}
+
+
 	public function index()
 	{
+		$jumlahmhs = $this->DashboardModel->jummhs();
+		$mhsaktif = $this->DashboardModel->mhsaktif();
+		$alumni = $this->DashboardModel->alumni();
+
 		if($this->session->userdata('authenticated')){ //Jika user sudah login (Session authenticated ditemukan)
 			redirect('dashboard'); //Redirect ke halaman Dashboard
 		}else{
-			$this->load->view('guest_dashboard'); //Load view Dashboard Guest
+			$this->load->view('guest_dashboard',['jumlahmhs' => $jumlahmhs,'mhsaktif' => $mhsaktif,
+			'alumni' => $alumni]); //Load view Dashboard Guest
 		}
 	}
 

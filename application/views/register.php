@@ -15,7 +15,7 @@
                     <div class="hero-static content content-full bg-white invisible" data-toggle="appear">
                         <!-- Header -->
                         <div class="py-30 px-5 text-center">
-                            <a class="link-effect font-w700" href="index.html">
+                            <a class="link-effect font-w700" href="<?php echo base_url()?>">
                                 <i class="si si-fire"></i>
                                 <span class="font-size-xl text-primary-dark">Portal</span><span class="font-size-xl">Elektro</span>
                             </a>
