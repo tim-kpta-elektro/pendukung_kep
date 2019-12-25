@@ -47,8 +47,21 @@ class Kp extends MY_Controller {
 			redirect('pengajuankp');
 		}else{
 			$this->KpModel->save_kp();
-			redirect('dashboard');
+            $this->session->set_flashdata('success', 'Pengajuan KP Berhasil disimpan');
+			redirect('pengajuankp');
 		}
+	}
+
+	public function editkp(){
+		$session = $_SESSION['nim'];
+		$edit = $this->KpModel->pending($session);
+		$this->load->view('kp/kp_edit',['edit' => $edit]);
+	}
+
+	public function updatekp(){
+			$this->KpModel->update_kp();
+            $this->session->set_flashdata('success', 'Update Pengajuan KP Berhasil disimpan');
+			redirect('pengajuankp');
 	}
 
 	public function cetak_pengajuankp(){
@@ -73,7 +86,7 @@ class Kp extends MY_Controller {
 
 	public function cetak_surat(){
 		$session = $_SESSION['nim'];
-		$data = $this->KpModel->pengajuankp($session);
+		$data = $this->KpModel->pelaksanaankp($session);
 
 		$this->pdf->setPaper('A4','portrait');
 		$this->pdf->set_option('isRemoteEnabled',true);
@@ -83,7 +96,7 @@ class Kp extends MY_Controller {
 
 	public function cetak_lmbrtugas(){
 		$session = $_SESSION['nim'];
-		$data = $this->KpModel->pengajuankp($session);
+		$data = $this->KpModel->pelaksanaankp($session);
 
 		if($data != null){
 			$this->pdf->setPaper('A4','portrait');

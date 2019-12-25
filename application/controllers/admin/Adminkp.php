@@ -8,7 +8,7 @@ class Adminkp extends MY_Controller {
 
         $this->load->model('AkpModel');
         $this->load->library('form_validation');
-		if ($this->session->userdata('level') != '2') {
+		if ($this->session->userdata('level') != '3') {
             redirect("dashboard");
         }
     }
@@ -92,13 +92,13 @@ class Adminkp extends MY_Controller {
         switch ($this->input->post('action')) {
             case 'setuju':
                 $this->AkpModel->sem_setuju();
-                $this->session->set_flashdata('success', 'Update Pengajuan KP Berhasil disimpan');
+                $this->session->set_flashdata('success', 'Update Pengajuan Seminar KP Berhasil disimpan');
                 return redirect('seminarkp');
                 break;
     
             case 'tolak':
                 $this->AkpModel->sem_tolak();
-                $this->session->set_flashdata('success', 'Update Pengajuan KP Berhasil disimpan');
+                $this->session->set_flashdata('success', 'Update Pengajuan Seminar KP Berhasil disimpan');
                 return redirect('seminarkp');
                 break;
             }

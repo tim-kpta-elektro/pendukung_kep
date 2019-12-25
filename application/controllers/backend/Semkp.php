@@ -47,8 +47,22 @@ class Semkp extends MY_Controller {
             redirect('pengajuansemkp');
         }else{
             $this->KpModel->store_semkp();
-            redirect('dashboard');
+            $this->session->set_flashdata('success', 'Pengajuan Seminar KP Berhasil disimpan');
+            redirect('pengajuansemkp');
         }
+    }
+
+    public function editseminar(){
+        $session = $_SESSION['nim'];
+        $edit = $this->KpModel->pending_semkp($session);
+        $ruang = $this->KpModel->ruang();
+		$this->load->view('kp/semkp_edit',['edit' => $edit,'ruang'=>$ruang]);
+    }
+
+    public function updateseminar(){
+        $this->KpModel->update_semkp();
+        $this->session->set_flashdata('success', 'Update Pengajuan Seminar KP Berhasil disimpan');
+        redirect('pengajuansemkp');
     }
 
     public function cetak_pengajuansemkp(){

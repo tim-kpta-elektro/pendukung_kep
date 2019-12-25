@@ -61,20 +61,43 @@ class KpModel extends CI_Model{
         $this->db->update('mahasiswa',$mhs,array('nim' => $this->input->post('nim')));
     }
 
+    public function update_kp(){
+        date_default_timezone_set('Asia/Jakarta');
+
+        $data = array(
+            'tgl_ajuan' => date('Y-m-d H:i:s'),
+            'perusahaan_nama' => $this->input->post('perusahaan_nama'),
+            'perusahaan_almt' => $this->input->post('perusahaan_almt'),
+            'perusahaan_jenis' => $this->input->post('perusahaan_jenis'),
+            'pic' => $this->input->post('pic'),
+            'tgl_mulai_kp' => $this->input->post('tgl_mulai_kp'),
+            'tgl_selesai_kp' => $this->input->post('tgl_selesai_kp'),
+            'status_kp' => $this->input->post('status_kp')
+        );
+
+        $mhs = array(
+            'sks' => $this->input->post('sks'),
+            'ipk' => $this->input->post('ipk')
+        );
+
+        $this->db->update('kp',$data,array('mahasiswa_id' => $this->input->post('mahasiswa_id')));
+        $this->db->update('mahasiswa',$mhs,array('nim' => $this->input->post('nim')));
+    }
+
     public function pengajuankp($session){
         $this->db->select('*');
         $this->db->from('kp');
         $this->db->join('mahasiswa','mahasiswa_id = id_mahasiswa');
         $this->db->join('ref_dosen','id_dosen = pem_kp');
         $this->db->where('nim',$session);
-        $this->db->where('status_kp','SETUJU');
+        $this->db->where('status_kp','PENDING');
         return $this->db->get()->row();
     }
 
     public function pelaksanaankp($session){
         $this->db->select('*');
         $this->db->from('kp');
-        $this->db->join('mahasiswa','mahasiswa_id = id_mahasiSwa');
+        $this->db->join('mahasiswa','mahasiswa_id = id_mahasiswa');
         $this->db->join('ref_dosen','id_dosen = pem_kp');
         $this->db->where('nim',$session);
         $this->db->where('status_kp','SETUJU');
@@ -151,6 +174,29 @@ class KpModel extends CI_Model{
         );
 
         $this->db->insert('seminar_kp',$semkp);
+        $this->db->update('mahasiswa',$data,array('nim' => $this->input->post('nim')));
+    }
+
+    public function update_semkp(){
+        date_default_timezone_set('Asia/Jakarta');
+
+        $data = array(
+            'sks' => $this->input->post('sks'),
+            'ipk' => $this->input->post('ipk')
+        );
+
+        $semkp = array(
+            'judul_seminar' => $this->input->post('judul_seminar'),
+            'tanggal_seminar' => $this->input->post('tanggal_seminar'),
+            'jam_mulai' => $this->input->post('jam_mulai'),
+            'jam_selesai' => $this->input->post('jam_selesai'),
+            'ruang_id' => $this->input->post('ruang_id'),
+            'status_seminarkp' => $this->input->post('status_seminarkp'),
+            'created_at' => date('Y-m-d H:i:s'),
+            'updated_at' => date('Y-m-d H:i:s'),
+        );
+
+        $this->db->update('seminar_kp',$semkp,array('kp_id' => $this->input->post('kp_id')));
         $this->db->update('mahasiswa',$data,array('nim' => $this->input->post('nim')));
     }
 

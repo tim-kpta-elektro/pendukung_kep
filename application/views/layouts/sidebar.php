@@ -79,7 +79,7 @@
             <li class="nav-main-heading">
                 <span class="sidebar-mini-visible">KP</span><span class="sidebar-mini-hidden">Kerja Praktek</span>
             </li>
-            <?php if($this->session->userdata('level')=='2'):?>
+            <?php if($this->session->userdata('level')=='3'):?>
             <li>
                 <a class="<?php if($this->uri->segment(1)=="daftarmhs"){echo "active";} ?>" href="<?php echo base_url('daftarmhs');?>">
                     <i class="si si-cup"></i><span class="sidebar-mini-hide">Daftar Mahasiswa Elektro</span>

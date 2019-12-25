@@ -30,12 +30,14 @@ class Welcome extends CI_Controller {
 		$jumlahmhs = $this->DashboardModel->jummhs();
 		$mhsaktif = $this->DashboardModel->mhsaktif();
 		$alumni = $this->DashboardModel->alumni();
+		$listkp = $this->DashboardModel->listkp();
+		$listseminar = $this->DashboardModel->listseminar();
 
 		if($this->session->userdata('authenticated')){ //Jika user sudah login (Session authenticated ditemukan)
 			redirect('dashboard'); //Redirect ke halaman Dashboard
 		}else{
 			$this->load->view('guest_dashboard',['jumlahmhs' => $jumlahmhs,'mhsaktif' => $mhsaktif,
-			'alumni' => $alumni]); //Load view Dashboard Guest
+			'alumni' => $alumni,'listkp'=>$listkp,'listseminar'=>$listseminar]); //Load view Dashboard Guest
 		}
 	}
 

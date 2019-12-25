@@ -13,9 +13,11 @@ class Dashboard extends MY_Controller {
 		$jumlahmhs = $this->DashboardModel->jummhs();
 		$mhsaktif = $this->DashboardModel->mhsaktif();
 		$alumni = $this->DashboardModel->alumni();
+		$listkp = $this->DashboardModel->listkp();
+		$listseminar = $this->DashboardModel->listseminar();
 
 		$this->load->view('dashboard',['jumlahmhs' => $jumlahmhs,'mhsaktif' => $mhsaktif,
-		'alumni' => $alumni]);
+		'alumni' => $alumni,'listkp'=>$listkp,'listseminar'=>$listseminar]);
 	}
 
 }

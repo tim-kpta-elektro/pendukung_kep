@@ -33,6 +33,11 @@
                 <div class="content">
                     <!-- Labels on top -->
                     <a href="<?php echo base_url('semkp/cetak_pengajuansemkp') ?>" class="btn btn-primary" target="_blank">Lembar Pengajuan Seminar KP</a>
+                    <?php if ($this->session->flashdata('success')): ?>
+                        <div class="alert alert-info alert-dismissable mt-20" role="alert">
+                        <b> <?php echo $this->session->flashdata('success'); ?> </b>
+                        </div>
+                    <?php endif; ?> 
                     <br><br>
                     <div class="block">
                         <div class="block-header">
@@ -93,7 +98,7 @@
                             </table>
                             <div class="row justify-content-center">
                                 <div class="col-md-3">
-                                    <a href="<?php echo base_url('#') ?>" class="btn btn-primary">Edit</a>
+                                    <a href="<?php echo base_url('backend/semkp/editseminar') ?>" class="btn btn-primary">Edit</a>
                                     <!-- <button type="submit" class="btn btn-primary">Edit</button> -->
                                 </div>
                             </div>

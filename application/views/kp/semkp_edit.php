@@ -40,9 +40,6 @@
                             <div class="col-md-12">
                                 <!-- Default Elements -->
                                 <div class="block">
-                                    <div class="block-header block-header-default">
-                                        <h1 class="block-title" style="text-align: center; color: red;">Ditolak! Update Data Kerja Praktek!</h1>
-                                    </div>
                                     <div class="block-content">
                                         <div class="row">
                                         <div class="col-lg-3"></div>
@@ -51,17 +48,17 @@
                                                 <h2 class="content-heading border-bottom mb-4 pb-2">Data Diri</h2>
                                                     <div class="form-group">
                                                         <label for="Nama">Nama</label>
-                                                        <input type="text" class="form-control" name="nama" value="<?php echo $tolak->nama_mhs ?>" readonly="readonly">
+                                                        <input type="text" class="form-control" name="nama" value="<?php echo $edit->nama_mhs ?>" readonly="readonly">
                                                     </div>
                                                     <div class="form-group">
                                                         <label for="Nim">NIM</label>
-                                                        <input type="text" class="form-control" name="nim" value="<?php echo $tolak->nim ?>" readonly="readonly">
+                                                        <input type="text" class="form-control" name="nim" value="<?php echo $edit->nim ?>" readonly="readonly">
                                                     </div>
                                                     <div class="form-group">
-                                                        <input type="hidden" class="form-control" name="id" value="<?php echo $tolak->id_seminar ?>">
+                                                        <input type="hidden" class="form-control" name="id" value="<?php echo $edit->id_seminar ?>">
                                                     </div>
                                                     <div class="form-group">
-                                                        <input type="hidden" class="form-control" name="kp_id" value="<?php echo $tolak->kp_id ?>">
+                                                        <input type="hidden" class="form-control" name="kp_id" value="<?php echo $edit->kp_id ?>">
                                                     </div>
                                                     <div class="form-group">
                                                         <input type="hidden" class="form-control" name="status_seminarkp" value="PENDING">
@@ -69,33 +66,33 @@
                                                 <h2 class="content-heading border-bottom mb-4 pb-2">Data Akademik</h2>
                                                     <div class="form-group">
                                                         <label for="sks">Jumlah SKS Lulus</label>
-                                                        <input type="number" class="form-control" name="sks" value="<?php echo $tolak->sks ?>">
+                                                        <input type="number" class="form-control" name="sks" value="<?php echo $edit->sks ?>">
                                                     </div>
                                                     <div class="form-group">
                                                         <label for="IPK">IPK</label>
-                                                        <input type="text" class="form-control" name="ipk" value="<?php echo $tolak->ipk ?>">
+                                                        <input type="text" class="form-control" name="ipk" value="<?php echo $edit->ipk ?>">
                                                     </div>
                                                 <h2 class="content-heading border-bottom mb-4 pb-2">Laporan Kerja Praktek</h2>
                                                     <div class="form-group">
                                                         <label for="judul seminar">Judul Laporan KP</label>
-                                                        <input type="text" class="form-control" name="judul_seminar" value="<?php echo $tolak->judul_seminar ?>">
+                                                        <input type="text" class="form-control" name="judul_seminar" value="<?php echo $edit->judul_seminar ?>">
                                                     </div>
                                                     <div class="form-group">
                                                         <label for="tanggal seminar">Tanggal Seminar KP</label>
-                                                        <input type="text" class="form-control bg-white" name="tanggal_seminar" id="flatpickr2" value="<?php echo $tolak->tanggal_seminar ?>">
+                                                        <input type="text" class="form-control bg-white" name="tanggal_seminar" id="flatpickr2" value="<?php echo $edit->tanggal_seminar ?>">
                                                     </div>
                                                     <div class="form-group">
                                                         <label for="jam mulai">Jam Mulai Seminar</label>
-                                                        <input type="text" class="form-control bg-white" name="jam_mulai" id="flatpickr" value="<?php echo $tolak->jam_mulai ?>">
+                                                        <input type="text" class="form-control bg-white" name="jam_mulai" id="flatpickr" value="<?php echo $edit->jam_mulai ?>">
                                                     </div>
                                                     <div class="form-group">
                                                         <label for="jam selesai">Jam Selesai Seminar</label>
-                                                        <input type="text" class="form-control bg-white" name="jam_selesai" id="flatpickr" value="<?php echo $tolak->jam_selesai ?>">
+                                                        <input type="text" class="form-control bg-white" name="jam_selesai" id="flatpickr" value="<?php echo $edit->jam_selesai ?>">
                                                     </div>
                                                     <div class="form-group">
                                                         <label for="acceptor">Ruang:</label>
                                                         <select class="form-control selectpicker" name="ruang_id" id="ruang_id" onchange="autofill()" data-live-search="true">
-                                                        <option selected="selected" value="<?php echo $tolak->id_ruang ?>"><?php echo $tolak->nama_ruang ?></option>
+                                                        <option selected="selected" value="<?php echo $edit->id_ruang ?>"><?php echo $edit->nama_ruang ?></option>
                                                         <?php foreach ($ruang as $ruangs): ?>
                                                             <option name="ruang_id" value="<?php echo  $ruangs->id_ruang  ?>"><?php echo $ruangs->nama_ruang ?></option>
                                                         <?php endforeach; ?>

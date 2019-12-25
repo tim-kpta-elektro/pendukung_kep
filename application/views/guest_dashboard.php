@@ -184,12 +184,10 @@
                     </div>
                     <div class="row invisible" data-toggle="appear">
                         <!-- Row #2 -->
-                        <div class="col-md-6">
-                            <div class="block">
-                                <div class="block-header bg-primary-lighter">
-                                    <h3 class="block-title">
-                                        Sales <small>This week</small>
-                                    </h3>
+                        <div class="col-md-12">
+                            <div class="block block-rounded block-bordered">
+                                <div class="block-header block-header-default border-b">
+                                    <h3 class="block-title">Kerja Praktek</h3>
                                     <div class="block-options">
                                         <button type="button" class="btn-block-option" data-toggle="block-option" data-action="state_toggle" data-action-mode="demo">
                                             <i class="si si-refresh"></i>
@@ -197,88 +195,38 @@
                                         <button type="button" class="btn-block-option">
                                             <i class="si si-wrench"></i>
                                         </button>
-                                    </div>
-                                </div>
-                                <div class="block-content block-content-full">
-                                    <div class="pull-all pt-30">
-                                        <!-- Lines Chart Container functionality is initialized in js/pages/be_pages_dashboard.min.js which was auto compiled from _es6/pages/be_pages_dashboard.js -->
-                                        <!-- For more info and examples you can check out http://www.chartjs.org/docs/ -->
-                                        <canvas class="js-chartjs-dashboard-lines"></canvas>
                                     </div>
                                 </div>
                                 <div class="block-content">
-                                    <div class="row items-push text-center">
-                                        <div class="col-12 col-sm-4">
-                                            <div class="font-w600 text-success">
-                                                <i class="fa fa-caret-up"></i> +6%
-                                            </div>
-                                            <div class="font-size-h4 font-w600">35.2</div>
-                                            <div class="font-size-sm font-w600 text-uppercase text-muted">Average</div>
-                                        </div>
-                                        <div class="col-6 col-sm-4">
-                                            <div class="font-w600 text-success">
-                                                <i class="fa fa-caret-up"></i> +14%
-                                            </div>
-                                            <div class="font-size-h4 font-w600">960</div>
-                                            <div class="font-size-sm font-w600 text-uppercase text-muted">This Month</div>
-                                        </div>
-                                        <div class="col-6 col-sm-4">
-                                            <div class="font-w600 text-danger">
-                                                <i class="fa fa-caret-down"></i> -1%
-                                            </div>
-                                            <div class="font-size-h4 font-w600">263</div>
-                                            <div class="font-size-sm font-w600 text-uppercase text-muted">This Week</div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-md-6">
-                            <div class="block">
-                                <div class="block-header bg-earth-lighter">
-                                    <h3 class="block-title">
-                                        Earnings <small>This week</small>
-                                    </h3>
-                                    <div class="block-options">
-                                        <button type="button" class="btn-block-option" data-toggle="block-option" data-action="state_toggle" data-action-mode="demo">
-                                            <i class="si si-refresh"></i>
-                                        </button>
-                                        <button type="button" class="btn-block-option">
-                                            <i class="si si-wrench"></i>
-                                        </button>
-                                    </div>
-                                </div>
-                                <div class="block-content block-content-full">
-                                    <div class="pull-all pt-30">
-                                        <!-- Lines Chart Container functionality is initialized in js/pages/be_pages_dashboard.min.js which was auto compiled from _es6/pages/be_pages_dashboard.js -->
-                                        <!-- For more info and examples you can check out http://www.chartjs.org/docs/ -->
-                                        <canvas class="js-chartjs-dashboard-lines2"></canvas>
-                                    </div>
-                                </div>
-                                <div class="block-content bg-white">
-                                    <div class="row items-push text-center">
-                                        <div class="col-6 col-sm-4">
-                                            <div class="font-w600 text-success">
-                                                <i class="fa fa-caret-up"></i> +8%
-                                            </div>
-                                            <div class="font-size-h4 font-w600">$ 8,200</div>
-                                            <div class="font-size-sm font-w600 text-uppercase text-muted">This Month</div>
-                                        </div>
-                                        <div class="col-6 col-sm-4">
-                                            <div class="font-w600 text-danger">
-                                                <i class="fa fa-caret-down"></i> -9%
-                                            </div>
-                                            <div class="font-size-h4 font-w600">$ 1,318</div>
-                                            <div class="font-size-sm font-w600 text-uppercase text-muted">This Week</div>
-                                        </div>
-                                        <div class="col-12 col-sm-4">
-                                            <div class="font-w600 text-success">
-                                                <i class="fa fa-caret-up"></i> +39%
-                                            </div>
-                                            <div class="font-size-h4 font-w600">$ 4,850</div>
-                                            <div class="font-size-sm font-w600 text-uppercase text-muted">Balance</div>
-                                        </div>
-                                    </div>
+                                    <table class="table table-bordered table-striped table-vcenter js-dataTable-full">
+                                        <thead>
+                                            <tr>
+                                                <th class="d-none d-sm-table-cell text-center" style="width: 20px">No</th>
+                                                <th style="width: 100px;" class="text-center">NIM</th>
+                                                <th class="text-center">Nama</th>
+                                                <th class="text-center">Tempat</th>
+                                                <th class="d-none d-sm-table-cell text-center">Alamat</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <?php $no=1; ?>
+                                            <?php foreach ($listkp as $row): ?>
+                                            <tr>
+                                                <td class="d-none d-sm-table-cell text-center font-size-sm text-center"><?php echo $no++?></td>
+                                                <td class="text-center font-size-sm text-center"><?php echo $row->nim?></td>
+                                                <td class="font-w600 font-size-sm text-center">
+                                                    <a href="#"><?php echo $row->nama_mhs?></a>
+                                                </td>
+                                                <td class="font-size-sm text-center">
+                                                    <?php echo $row->perusahaan_nama?>
+                                                </td>
+                                                <td class="d-none d-sm-table-cell font-size-sm text-center">
+                                                    <?php echo $row->perusahaan_almt?>
+                                                </td>
+                                            </tr>
+                                            <?php endforeach; ?>
+                                        </tbody>
+                                    </table>
                                 </div>
                             </div>
                         </div>
@@ -286,101 +234,65 @@
                     </div>
                     <div class="row invisible" data-toggle="appear">
                         <!-- Row #3 -->
-                        <div class="col-md-6">
-                            <a class="block" href="javascript:void(0)">
-                                <div class="block-content block-content-full">
-                                    <i class="si si-game-controller fa-2x text-body-bg-dark"></i>
-                                    <div class="row pt-10 pb-30 text-center">
-                                        <div class="col-6 border-r">
-                                            <div class="font-size-h3 font-w600">190</div>
-                                            <div class="font-size-sm font-w600 text-uppercase text-muted">Games</div>
-                                        </div>
-                                        <div class="col-6">
-                                            <div class="font-size-h3 font-w600">870</div>
-                                            <div class="font-size-sm font-w600 text-uppercase text-muted">Subscriptions</div>
-                                        </div>
+                        <div class="col-md-12">
+                            <div class="block block-rounded block-bordered">
+                                <div class="block-header block-header-default border-b">
+                                    <h3 class="block-title">Seminar Kerja Praktek</h3>
+                                    <div class="block-options">
+                                        <button type="button" class="btn-block-option" data-toggle="block-option" data-action="state_toggle" data-action-mode="demo">
+                                            <i class="si si-refresh"></i>
+                                        </button>
+                                        <button type="button" class="btn-block-option">
+                                            <i class="si si-wrench"></i>
+                                        </button>
                                     </div>
                                 </div>
-                            </a>
-                        </div>
-                        <div class="col-md-6">
-                            <a class="block" href="javascript:void(0)">
-                                <div class="block-content block-content-full">
-                                    <div class="text-right">
-                                        <i class="si si-wallet fa-2x text-body-bg-dark"></i>
-                                    </div>
-                                    <div class="row pt-10 pb-30 text-center">
-                                        <div class="col-6 border-r">
-                                            <div class="font-size-h3 font-w600">$840</div>
-                                            <div class="font-size-sm font-w600 text-uppercase text-muted">Today</div>
-                                        </div>
-                                        <div class="col-6">
-                                            <div class="font-size-h3 font-w600">$4,490</div>
-                                            <div class="font-size-sm font-w600 text-uppercase text-muted">Last Week</div>
-                                        </div>
-                                    </div>
+                                <div class="block-content">
+                                    <table class="table table-bordered table-striped table-vcenter js-dataTable-full">
+                                        <thead>
+                                            <tr>
+                                                <th class="d-none d-sm-table-cell text-center" style="width: 20px">No</th>
+                                                <th style="width: 100px;" class="text-center">NIM</th>
+                                                <th class="text-center">Nama</th>
+                                                <th class="d-none d-sm-table-cell text-center">Judul Seminar</th>
+                                                <th class="d-none d-sm-table-cell text-center">Tanggal Seminar</th>
+                                                <th class="d-none d-sm-table-cell text-center">Jam Mulai</th>
+                                                <th class="d-none d-sm-table-cell text-center">Jam Selesai</th>
+                                                <th class="text-center">Tempat</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <?php $no=1; ?>
+                                            <?php foreach ($listseminar as $row): ?>
+                                            <tr>
+                                                <td class="d-none d-sm-table-cell text-center font-size-sm text-center"><?php echo $no++?></td>
+                                                <td class="text-center font-size-sm text-center"><?php echo $row->nim?></td>
+                                                <td class="font-w600 font-size-sm text-center">
+                                                    <a href="#"><?php echo $row->nama_mhs?></a>
+                                                </td>
+                                                <td class="d-none d-sm-table-cell font-size-sm text-center">
+                                                    <?php echo $row->judul_seminar?>
+                                                </td>
+                                                <td class="d-none d-sm-table-cell font-size-sm text-center">
+                                                    <?php echo $row->tanggal_seminar?>
+                                                </td>
+                                                <td class="d-none d-sm-table-cell font-size-sm text-center">
+                                                    <?php echo $row->jam_mulai?>
+                                                </td>
+                                                <td class="d-none d-sm-table-cell font-size-sm text-center">
+                                                    <?php echo $row->jam_selesai?>
+                                                </td>
+                                                <td class="font-size-sm text-center">
+                                                    <?php echo $row->nama_ruang?>
+                                                </td>
+                                            </tr>
+                                            <?php endforeach; ?>
+                                        </tbody>
+                                    </table>
                                 </div>
-                            </a>
+                            </div>
                         </div>
                         <!-- END Row #3 -->
-                    </div>
-                    <div class="row invisible" data-toggle="appear">
-                        <!-- Row #4 -->
-                        <div class="col-md-4">
-                            <div class="block">
-                                <div class="block-content block-content-full">
-                                    <div class="py-20 text-center">
-                                        <div class="mb-20">
-                                            <i class="si si-earphones fa-3x text-success"></i>
-                                        </div>
-                                        <div class="font-size-h4 font-w600">4.8k Songs</div>
-                                        <div class="text-muted">Your library is growing!</div>
-                                        <div class="pt-20">
-                                            <a class="btn btn-rounded btn-alt-success" href="javascript:void(0)">
-                                                <i class="fa fa-shopping-bag mr-5"></i> Get more
-                                            </a>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-md-4">
-                            <div class="block">
-                                <div class="block-content block-content-full">
-                                    <div class="py-20 text-center">
-                                        <div class="mb-20">
-                                            <i class="si si-diamond fa-3x text-warning"></i>
-                                        </div>
-                                        <div class="font-size-h4 font-w600">7580 Points</div>
-                                        <div class="text-muted">Nice, you are doing great!</div>
-                                        <div class="pt-20">
-                                            <a class="btn btn-rounded btn-alt-warning" href="javascript:void(0)">
-                                                <i class="fa fa-check mr-5"></i> Redeem them now
-                                            </a>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-md-4">
-                            <div class="block">
-                                <div class="block-content block-content-full">
-                                    <div class="py-20 text-center">
-                                        <div class="mb-20">
-                                            <i class="si si-grid fa-3x text-info"></i>
-                                        </div>
-                                        <div class="font-size-h4 font-w600">2 Grid Servers</div>
-                                        <div class="text-muted">Currently active.</div>
-                                        <div class="pt-20">
-                                            <a class="btn btn-rounded btn-alt-info" href="javascript:void(0)">
-                                                <i class="fa fa-plus mr-5"></i> Add More
-                                            </a>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <!-- END Row #4 -->
                     </div>
                 </div>
                 <!-- END Page Content -->
