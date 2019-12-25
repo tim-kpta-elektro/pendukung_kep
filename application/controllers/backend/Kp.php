@@ -8,6 +8,9 @@ class Kp extends MY_Controller {
 
 		$this->load->model('KpModel');
 		$this->load->library('form_validation');
+		if ($this->session->userdata('level') != '1') {
+            redirect("dashboard");
+        }
 	}
 	
 	function index(){

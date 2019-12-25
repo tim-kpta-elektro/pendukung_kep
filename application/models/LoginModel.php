@@ -4,6 +4,7 @@ class LoginModel extends CI_Model {
     
     public function get($username){
         $this->db->where('username', $username); // Untuk menambahkan Where Clause : username='$username'
+        $this->db->or_where('nim', $username);
         $result = $this->db->get('users')->row(); // Untuk mengeksekusi dan mengambil data hasil query
         return $result;
     }

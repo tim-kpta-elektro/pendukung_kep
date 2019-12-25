@@ -21,6 +21,11 @@
                             </a>
                             <h1 class="h2 font-w700 mt-50 mb-10">Create New Account</h1>
                             <h2 class="h4 font-w400 text-muted mb-0">Please add your details</h2>
+                            <?php if ($this->session->flashdata('success')): ?>
+                                <div class="alert alert-success alert-dismissable mt-20" role="alert">
+                                    <?php echo $this->session->flashdata('success'); ?>
+                                </div>
+                            <?php endif; ?> 
                         </div>
                         <!-- END Header -->
 

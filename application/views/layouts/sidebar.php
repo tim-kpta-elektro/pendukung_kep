@@ -79,6 +79,24 @@
             <li class="nav-main-heading">
                 <span class="sidebar-mini-visible">KP</span><span class="sidebar-mini-hidden">Kerja Praktek</span>
             </li>
+            <?php if($this->session->userdata('level')=='2'):?>
+            <li>
+                <a class="<?php if($this->uri->segment(1)=="daftarmhs"){echo "active";} ?>" href="<?php echo base_url('daftarmhs');?>">
+                    <i class="si si-cup"></i><span class="sidebar-mini-hide">Daftar Mahasiswa Elektro</span>
+                </a>
+            </li>
+            <li>
+                <a class="<?php if($this->uri->segment(1)=="requestkp"){echo "active";} ?>" href="<?php echo base_url('requestkp');?>">
+                    <i class="si si-cup"></i><span class="sidebar-mini-hide">Request Pengajuan KP</span>
+                </a>
+            </li>
+            <li>
+                <a class="<?php if($this->uri->segment(1)=="seminarkp"){echo "active";} ?>" href="<?php echo base_url('seminarkp');?>">
+                    <i class="si si-cup"></i><span class="sidebar-mini-hide">Request Seminar KP</span>
+                </a>
+            </li>
+            <?php endif; ?>
+            <?php if($this->session->userdata('level')=='1'):?>
             <li>
                 <a class="<?php if($this->uri->segment(1)=="pengajuankp"){echo "active";} ?>" href="<?php echo base_url('pengajuankp');?>">
                     <i class="si si-cup"></i><span class="sidebar-mini-hide">Pengajuan KP</span>
@@ -100,6 +118,7 @@
                     <i class="si si-cup"></i><span class="sidebar-mini-hide">Seminar KP</span>
                 </a>
             </li>
+            <?php endif; ?>
             <li class="nav-main-heading">
                 <span class="sidebar-mini-visible">VR</span><span class="sidebar-mini-hidden">Various</span>
             </li>

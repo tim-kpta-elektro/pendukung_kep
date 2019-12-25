@@ -35,6 +35,11 @@
                                     </a>
                                     <h1 class="h3 font-w700 mt-30 mb-10">Welcome to Your Dashboard</h1>
                                     <h2 class="h5 font-w400 text-muted mb-0">Please sign in</h2>
+                                    <?php if ($this->session->flashdata('message')): ?>
+                                        <div class="alert alert-danger alert-dismissable mt-20" role="alert">
+                                            <?php echo $this->session->flashdata('message'); ?>
+                                        </div>
+                                    <?php endif; ?> 
                                 </div>
                                 <!-- END Header -->
 

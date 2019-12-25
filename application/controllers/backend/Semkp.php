@@ -7,7 +7,11 @@ class Semkp extends MY_Controller {
 		parent::__construct();
 
 		$this->load->model('KpModel');
-		$this->load->library('form_validation');
+        $this->load->library('form_validation');
+            
+        if ($this->session->userdata('level') != '1') {
+            redirect("dashboard");
+        }
     }
 
     function index(){
@@ -77,7 +81,7 @@ class Semkp extends MY_Controller {
 
     public function cetak_daftarhadir(){
         $session = $_SESSION['nim'];
-		$data = $this->KpModel->setuju_semkp($session);
+		$data = $this->KpModel->undangan($session);
         
 		$this->pdf->setPaper('A4','potrait');
 		$this->pdf->set_option('isRemoteEnabled',true);

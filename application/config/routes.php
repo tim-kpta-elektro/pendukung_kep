@@ -69,5 +69,11 @@ $route['semkp/cetak_pengajuansemkp'] = 'backend/semkp/cetak_pengajuansemkp';
 $route['semkp/cetak_undangan'] = 'backend/semkp/cetak_undangan';
 $route['semkp/cetak_daftarhadir'] = 'backend/semkp/cetak_daftarhadir';
 
+//Route Admin
+$route['daftarmhs'] = 'admin/adminkp';
+$route['requestkp'] = 'admin/adminkp/pengajuankp';
+$route['seminarkp'] = 'admin/adminkp/seminarkp';
+
 //Route Login
 $route['login'] = 'auth/login';
+$route['register'] = 'auth/register';

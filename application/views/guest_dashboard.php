@@ -72,7 +72,7 @@
                                 </ul>
                             </li>
                             <li>
-                                <a class="{{ request()->is('/login') ? ' active' : '' }}" href="<?php echo base_url();?>login">
+                                <a class="{{ request()->is('/auth') ? ' active' : '' }}" href="<?php echo base_url('auth');?>">
                                     <i class="si si-cup"></i><span class="sidebar-mini-hide">Login</span>
                                 </a>
                             </li>
@@ -96,6 +96,25 @@
                 <!-- Sidebar Content -->
             </nav>
             <!-- END Sidebar -->
+            
+            <!-- Header -->
+            <header id="page-header">
+                <!-- Header Content -->
+                <div class="content-header">
+                    <!-- Left Section -->
+                    <div class="content-header-section">
+                        <!-- Toggle Sidebar -->
+                        <!-- Layout API, functionality initialized in Template._uiApiLayout() -->
+                        <button type="button" class="btn btn-circle btn-dual-secondary" data-toggle="layout" data-action="sidebar_toggle">
+                            <i class="fa fa-navicon"></i>
+                        </button>
+                        <!-- END Toggle Sidebar -->
+                    </div>
+                    <!-- END Left Section -->
+                </div>
+                <!-- END Header Loader -->
+            </header>
+            <!-- END Header -->
 
             <!-- Main Container -->
             <main id="main-container">

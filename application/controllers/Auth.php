@@ -59,9 +59,10 @@ class Auth extends CI_Controller {
 		}else if ($validation->run() == FALSE) { //Jika tidak ada data yang di inputkan load view register
             $this->load->view('register');
         }else{
-            $login->regis(); //Data diinputkan maka menjalankan LoginModel
-            redirect('auth');
-            $this->session->set_flashdata('success','User Baru Berhasil Dibuat');
+			$login->regis(); //Data diinputkan maka menjalankan LoginModel
+			$this->session->set_flashdata('success','User Baru Berhasil Dibuat');
+            redirect('register');
+            
         }
 
 	}
