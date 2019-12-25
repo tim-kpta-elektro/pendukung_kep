@@ -45,23 +45,23 @@
                             <table class="table table-bordered table-striped table-vcenter js-dataTable-full">
                             <thead>
                                 <tr>
-                                    <th class="text-center" style="width: 20px">No</th>
-                                    <th class="text-center" style="width: 150px;">NIM</th>
-                                    <th class="d-none d-sm-table-cell text-center">Nama</th>
-                                    <th class="d-none d-sm-table-cell text-center" style="width: 40%;">Pembimbing</th>
-                                    <th class="d-none d-sm-table-cell text-center" style="width: 20%;">Action</th>
+                                    <th class="d-none d-sm-table-cell text-center" style="width: 20px">No</th>
+                                    <th class="d-none d-sm-table-cell text-center" style="width: 150px;">NIM</th>
+                                    <th class="text-center">Nama</th>
+                                    <th class="text-center" style="width: 40%;">Pembimbing</th>
+                                    <th class="text-center" style="width: 20%;">Action</th>
                                 </tr>
                             </thead>
                             <tbody>
                                 <?php $no=1; ?>
                                 <?php foreach ($data as $row): ?>
                                 <tr>
-                                    <td class="text-center font-size-sm text-center"><?php echo $no++?></td>
-                                    <td class="text-center font-size-sm text-center"><?php echo $row->nim?></td>
+                                    <td class="d-none d-sm-table-cell text-center font-size-sm text-center"><?php echo $no++?></td>
+                                    <td class="d-none d-sm-table-cell text-center font-size-sm text-center"><?php echo $row->nim?></td>
                                     <td class="font-w600 font-size-sm text-center">
                                         <a href="#"><?php echo $row->nama_mhs?></a>
                                     </td>
-                                    <td class="d-none d-sm-table-cell font-size-sm text-center">
+                                    <td class="font-size-sm text-center">
                                         <?php echo $row->nama_dosen?>
                                     </td>
                                     <td width="250" style="text-align: center;">

@@ -252,11 +252,11 @@
                                         <thead>
                                             <tr>
                                                 <th class="d-none d-sm-table-cell text-center" style="width: 20px">No</th>
-                                                <th style="width: 100px;" class="text-center">NIM</th>
+                                                <th style="width: 100px;" class="d-none d-sm-table-cell text-center">NIM</th>
                                                 <th class="text-center">Nama</th>
                                                 <th class="d-none d-sm-table-cell text-center">Judul Seminar</th>
                                                 <th class="d-none d-sm-table-cell text-center">Tanggal Seminar</th>
-                                                <th class="d-none d-sm-table-cell text-center">Jam Mulai</th>
+                                                <th class="text-center">Jam Mulai</th>
                                                 <th class="d-none d-sm-table-cell text-center">Jam Selesai</th>
                                                 <th class="text-center">Tempat</th>
                                             </tr>
@@ -266,7 +266,7 @@
                                             <?php foreach ($listseminar as $row): ?>
                                             <tr>
                                                 <td class="d-none d-sm-table-cell text-center font-size-sm text-center"><?php echo $no++?></td>
-                                                <td class="text-center font-size-sm text-center"><?php echo $row->nim?></td>
+                                                <td class="d-none d-sm-table-cell text-center font-size-sm text-center"><?php echo $row->nim?></td>
                                                 <td class="font-w600 font-size-sm text-center">
                                                     <a href="#"><?php echo $row->nama_mhs?></a>
                                                 </td>
@@ -276,7 +276,7 @@
                                                 <td class="d-none d-sm-table-cell font-size-sm text-center">
                                                     <?php echo $row->tanggal_seminar?>
                                                 </td>
-                                                <td class="d-none d-sm-table-cell font-size-sm text-center">
+                                                <td class="font-size-sm text-center">
                                                     <?php echo $row->jam_mulai?>
                                                 </td>
                                                 <td class="d-none d-sm-table-cell font-size-sm text-center">
