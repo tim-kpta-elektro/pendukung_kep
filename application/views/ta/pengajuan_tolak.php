@@ -105,20 +105,21 @@
                                     <div class="form-group row">
                                         <label class="col-12" for="example-text-input">Nama</label>
                                         <div class="col-md-12">
-                                            <input type="text" class="form-control" name="nama" value="<?php echo $data->nama_mhs ?>" placeholder="masukkan nama" disabled="">
+                                            <input type="text" class="form-control" name="nama" value="<?php echo $data->nama_mhs ?>" placeholder="masukkan nama" readonly>
                                         </div>
                                     </div>
-                                            <input type="text" class="form-control" value="PENDING" name="status_ta" hidden>
+                                    <input type="text" class="form-control" value="PENDING" name="status_ta" hidden>
+                                    <input type="text" class="form-control" value="<?php echo $ta->id_ta?>" name="id_ta" hidden>
                                     <div class="form-group row">
                                         <label class="col-12" for="example-text-input">Total SKS</label>
                                         <div class="col-md-12">
-                                            <input type="number" step="1" min="0" class="form-control" name="sks" placeholder="Total SKS yang dicapai">
+                                            <input type="number" step="1" min="0" class="form-control" name="sks" value="<?php echo $data->sks ?>" placeholder="Total SKS yang dicapai">
                                         </div>
                                     </div>
                                     <div class="form-group row">
                                         <label class="col-12" for="example-text-input">Indeks Prestasi Kumulatif</label>
                                         <div class="col-md-12">
-                                            <input type="number" step="0.01" min="0" max="4" class="form-control" name="ipk" placeholder="IPK terakhir">
+                                            <input type="number" step="0.01" min="0" max="4" class="form-control" name="ipk" value="<?php echo $data->ipk ?>" placeholder="IPK terakhir">
                                         </div>
                                     </div>                                  
                             </div>
@@ -150,19 +151,20 @@
                                         </div>
 
                                         <?php
-                                        for ($i = 1; $i <= 3; $i++){
+                                        foreach($matkul as $matkul){
+                                            $i=1
                                         ?>
                                         <div class="col-3">
-                                            <input type="text" class="form-control" name="kode_mk<?php print($i)?>" placeholder="Kode"><br>
+                                            <input type="text" class="form-control" name="kode_mk<?php print($i++)?>" value="<?php echo $matkul->kode_matkul?>" ><br>
                                         </div>
                                         <div class="col-5">
-                                            <input type="text" class="form-control" name="mk<?php print($i)?>" placeholder="Nama MK <?php print($i)?>"><br>
+                                            <input type="text" class="form-control" name="mk<?php print($i++)?>" value="<?php echo $matkul->nama_matkul?>"><br>
                                         </div>
                                         <div class="col-sm-2">
-                                            <input type="text" class="form-control" name="nilai_mk<?php print($i)?>" ><br>
+                                            <input type="text" class="form-control" name="nilai_mk<?php print($i++)?>" value="<?php echo $matkul->ip?>"><br>
                                         </div>
                                         <div class="col-sm-2">
-                                            <input type="text" class="form-control" name="huruf_mk<?php print($i)?>" ><br>
+                                            <input type="text" class="form-control" name="huruf_mk<?php print($i++)?>" value="<?php echo $matkul->huruf?>"><br>
                                         </div>
                                         <?php
                                         }
@@ -187,19 +189,19 @@
                                     <div class="form-group row">
                                         <label class="col-12" for="example-text-input">Judul</label>
                                         <div class="col-md-12">
-                                            <textarea type="text" class="form-control" id="example-text-input" name="judul" placeholder="Masukkan judul"></textarea>
+                                            <input type="text" class="form-control" id="example-text-input" name="judul" value="<?php echo $ta->judul?>">
                                         </div>
                                     </div>
                                     <div class="form-group row">
                                         <label class="col-12" for="example-text-input">Abstrak</label>
                                         <div class="col-md-12">
-                                            <textarea type="text" class="form-control" id="example-text-input" name="abstrak" placeholder="Deskripsi singkat"></textarea>
+                                            <input type="text" class="form-control" id="example-text-input" name="abstrak" value="<?php echo $ta->abstrak?>">
                                         </div>
                                     </div>
                                     <div class="form-group row">
                                         <label class="col-12" for="example-text-input">Tanggal Pengajuan</label>
                                         <div class="col-md-12"> 
-                                            <input type="text" class="form-control bg-white" id="flatpickr" name="tgl_pengajuan" placeholder="Y-m-d">
+                                            <input type="text" class="form-control"  name="tgl_pengajuan" value="<?php echo $ta->tgl_pengajuan?>">
                                         </div>
                                     </div>
                             </div>
@@ -218,7 +220,7 @@
                                     <div class="form-group">
                                         <label for="sks">Pembimbing 1 Tugas Akhir</label>
                                         <select class="form-control" name="pembimbing1" id="">
-                                            <option value="" selected="selected" disabled>--- Pilih ---</option>
+                                            <option value="" selected="selected" disabled><?php echo $pembimbing1->nama_dosen?></option>
                                             <?php
                                             foreach($dosens as $dosen){
                                             ?>
@@ -230,22 +232,22 @@
                                     </div>
                                     <div class="form-group">
                                         <label for="sks">Pembimbing 2 Tugas Akhir</label>
-                                        <select class="form-control" name="pembimbing2" id="">
-                                            <option value="" selected="selected" disabled>--- Pilih ---</option>
+                                        <select class="form-control" name="pembimbing1" id="">
+                                            <option value="" selected="selected" disabled><?php echo $pembimbing2->nama_dosen?></option>
                                             <?php
                                             foreach($dosens as $dosen){
                                             ?>
-                                            <option value="<?php echo($dosen->id_dosen)?>"><?php echo $dosen->nama_dosen?> </option>
+                                            <option value="<?php echo($dosen->id_dosen)?>"><?php echo($dosen->nama_dosen)?> </option>
                                             <?php
                                             }
                                             ?>
                                         </select>
                                     </div>
-                                    <div class="form-group row">
-                                        <div class="col-lg-12 ml-auto">
-                                            <button type="submit" class="btn btn-alt-primary">Daftar</button>
-                                        </div>
+                                <div class="form-group row">
+                                    <div class="col-lg-12 ml-auto">
+                                            <button type="submit" class="btn btn-alt-primary">Daftar Kembali</button>
                                     </div>
+                                </div>
                             </div>
                         </div>
                     </div>
