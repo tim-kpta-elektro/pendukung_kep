@@ -119,6 +119,44 @@
                 </a>
             </li>
             <?php endif; ?>
+            <li class="nav-main-heading">
+                <span class="sidebar-mini-visible">TA</span><span class="sidebar-mini-hidden">Tugas Akhir</span>
+            </li>
+            <?php if($this->session->userdata('level')=='1'):?>
+            <li>
+                <a href="<?php echo base_url('backend/ta');?>">
+                    <i class="si si-cup"></i><span class="sidebar-mini-hide">Pengajuan TA</span>
+                </a>
+            </li>
+            <li>
+                <a class="nav-submenu" data-toggle="nav-submenu" href="#"><i class="si si-cup"></i><span class="sidebar-mini-hide">Seminar Hasil</span></a>
+                <ul>
+                    <li>
+                        <a href="#">Pengajuan Seminar</a>
+                    </li>
+                </ul>
+            </li>
+            <li>
+                <a class="nav-submenu" data-toggle="nav-submenu" href="#"><i class="si si-bulb"></i><span class="sidebar-mini-hide">Berkas</span></a>
+                <ul>
+                    <li>
+                        <a href="<?php echo base_url('backend/laporan_ta/berita_acara');?>">Berita Acara</a>
+                    </li>
+                    <li>
+                        <a href="<?php echo base_url('backend/laporan_ta/hadir_dosen');?>">Daftar Hadir Dosen</a>
+                    </li>
+                    <li>
+                        <a href="<?php echo base_url('backend/laporan_ta/cetak_bukti');?>">Bukti Penyerahan Undangan Pendadaran </a>
+                    </li>
+                    <li>
+                        <a href="<?php echo base_url('backend/laporan_ta/cetak_persetujuan');?>">Persetujuan Pendadaran </a>
+                    </li>
+                    <li>
+                        <a href="<?php echo base_url('backend/laporan_ta/cetak_undangan');?>">Undangan Pendadaran </a>
+                    </li>
+                </ul>
+            </li>
+            <?php endif; ?>
         </ul>
     </div>
     <!-- END Side Navigation -->

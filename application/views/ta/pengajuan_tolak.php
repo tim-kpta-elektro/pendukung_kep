@@ -82,6 +82,11 @@
         <!-- Main Container -->
         <main id="main-container">
             <div class="content">
+                <div class="block">
+                    <div class="block-header block-header-default">
+                        <h1 class="block-title" style="text-align: center; color: red;">Pengajuan Tugas Akhir Anda <b>DITOLAK<b></h1>
+                    </div>
+                </div>
                 <form action="<?php echo base_url('backend/ta/pengajuan') ?>" method="post">
                 <h2 class="content-heading">Pengajuan Tugas Akhir</h2>
                 <div class="row">

@@ -84,11 +84,12 @@
             <div class="content">
                 <div class="block">
                     <div class="block-header block-header-default">
-                        <h1 class="block-title" style="text-align: center; color:orange ;">Pengajuan Berhasil Disimpan<br><b>Menunggu Persetujuan Admin Tugas Akhir<b></h1>
+                        <h1 class="block-title" style="text-align: center; color: green;">Pengajuan Tugas Akhir Telah <b>DISETUJUI<b></h1>
                     </div>
                 </div>
                 <form action="<?php echo base_url('backend/ta/pengajuan') ?>" method="post">
                 <h2 class="content-heading">Pengajuan Tugas Akhir</h2>
+
                 <div class="row">
                     <div class="col-md-6">
                         <div class="block">

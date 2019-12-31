@@ -12,9 +12,23 @@ class Ta extends CI_Controller {
 
 	function index(){
 		$session = $_SESSION['nim'];
-		$result['data']= $this->TaModel->mahasiswa($session);
 		$result['dosens']= $this->TaModel->dosens();
-		$this->load->view('ta/pengajuan',$result);
+		$result['data']= $this->TaModel->mahasiswa($session);
+		$result["pending"] = $this->TaModel->pending($session);
+		$result["setuju"] = $this->TaModel->setuju($session);
+		$result["tolak"] = $this->TaModel->tolak($session);
+
+		if($result["setuju"] != NULL){
+			redirect('backend/ta/pengajuan_setuju');
+		}else if($result["pending"] != NULL){
+			redirect('backend/ta/pengajuan_pending');
+		}elseif($result["tolak"] != NULL){
+			redirect('backend/ta/pengajuan_tolak');
+		}else if($result != NULL){
+			$this->load->view('ta/pengajuan',$result);
+		}else{
+			$this->load->view('kp/error_pem');
+		}
 	}
 	
 	function pengajuan(){
@@ -64,7 +78,15 @@ class Ta extends CI_Controller {
 	}
 
 	function pengajuan_setuju(){
-		$this->load->view('ta/pengajuan_setuju');
+		$session = $_SESSION['nim'];
+		$result['data']= $this->TaModel->mahasiswa($session);
+		$result['ta']= $this->TaModel->ta($session);
+		$id_ta=$result['ta']->id_ta;
+		$result['pembimbing1']= $this->TaModel->pembimbing1($id_ta);
+		$result['pembimbing2']= $this->TaModel->pembimbing2($id_ta);
+		$result['matkul']= $this->TaModel->matkul($id_ta);
+
+		$this->load->view('ta/pengajuan_setuju',$result);
 	}
  
 }

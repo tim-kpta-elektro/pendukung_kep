@@ -10,6 +10,33 @@ class TaModel extends CI_Model {
         return $this->db->get()->row();
     }
 
+    public function pending($session){
+        $this->db->select('*');
+        $this->db->from('ta');
+        $this->db->join('mahasiswa','ta.nim_mhs = mahasiswa.nim');
+        $this->db->where('nim',$session);
+        $this->db->where('status_ta','PENDING');
+        return $this->db->get()->row();
+    }
+
+    public function tolak($session){
+        $this->db->select('*');
+        $this->db->from('ta');
+        $this->db->join('mahasiswa','ta.nim_mhs = mahasiswa.nim');
+        $this->db->where('nim',$session);
+        $this->db->where('status_ta','TOLAK');
+        return $this->db->get()->row();
+    }
+
+    public function setuju($session){
+        $this->db->select('*');
+        $this->db->from('ta');
+        $this->db->join('mahasiswa','ta.nim_mhs = mahasiswa.nim');
+        $this->db->where('nim',$session);
+        $this->db->where('status_ta','SETUJU');
+        return $this->db->get()->row();
+    }
+
     public function dosens(){
         $this->db->select('*');
         $this->db->from('ref_dosen');
