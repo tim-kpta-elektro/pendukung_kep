@@ -87,7 +87,7 @@
                         <h1 class="block-title" style="text-align: center; color: red;">Pengajuan Tugas Akhir Anda <b>DITOLAK<b></h1>
                     </div>
                 </div>
-                <form action="<?php echo base_url('backend/ta/pengajuan') ?>" method="post">
+                <form action="<?php echo base_url('backend/ta/pengajuan_kembali') ?>" method="post">
                 <h2 class="content-heading">Pengajuan Tugas Akhir</h2>
                 <div class="row">
                     <div class="col-md-6">
@@ -114,7 +114,7 @@
                                         </div>
                                     </div>
                                     <input type="text" class="form-control" value="PENDING" name="status_ta" hidden>
-                                    <input type="text" class="form-control" value="<?php echo $ta->id_ta?>" name="id_ta" hidden>
+                                    <input type="text" class="form-control" value="<?php echo $ta->id_ta?>" name="id_ta">
                                     <div class="form-group row">
                                         <label class="col-12" for="example-text-input">Total SKS</label>
                                         <div class="col-md-12">
@@ -156,22 +156,23 @@
                                         </div>
 
                                         <?php
-                                        foreach($matkul as $matkul){
-                                            $i=1
+                                        foreach($matkul as $key=>$matkul){
+                                            
                                         ?>
                                         <div class="col-3">
-                                            <input type="text" class="form-control" name="kode_mk<?php print($i++)?>" value="<?php echo $matkul->kode_matkul?>" ><br>
+                                            <input type="text" class="form-control" name="kode_mk<?php print($key)?>" value="<?php echo $matkul->kode_matkul?>" ><br>
                                         </div>
                                         <div class="col-5">
-                                            <input type="text" class="form-control" name="mk<?php print($i++)?>" value="<?php echo $matkul->nama_matkul?>"><br>
+                                            <input type="text" class="form-control" name="mk<?php print($key)?>" value="<?php echo $matkul->nama_matkul?>"><br>
                                         </div>
                                         <div class="col-sm-2">
-                                            <input type="text" class="form-control" name="nilai_mk<?php print($i++)?>" value="<?php echo $matkul->ip?>"><br>
+                                            <input type="text" class="form-control" name="nilai_mk<?php print($key)?>" value="<?php echo $matkul->ip?>"><br>
                                         </div>
                                         <div class="col-sm-2">
-                                            <input type="text" class="form-control" name="huruf_mk<?php print($i++)?>" value="<?php echo $matkul->huruf?>"><br>
+                                            <input type="text" class="form-control" name="huruf_mk<?php print($key)?>" value="<?php echo $matkul->huruf?>"><br>
                                         </div>
                                         <?php
+                                            
                                         }
                                         
                                         ?>
@@ -237,7 +238,7 @@
                                     </div>
                                     <div class="form-group">
                                         <label for="sks">Pembimbing 2 Tugas Akhir</label>
-                                        <select class="form-control" name="pembimbing1" id="">
+                                        <select class="form-control" name="pembimbing2" id="">
                                             <option value="" selected="selected" disabled><?php echo $pembimbing2->nama_dosen?></option>
                                             <?php
                                             foreach($dosens as $dosen){

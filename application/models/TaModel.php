@@ -108,7 +108,7 @@ class TaModel extends CI_Model {
             );
             $this->db->insert('pembimbing',$pembimbing);
 
-            for ($i = 1; $i <= 3; $i++) {
+            for ($i = 0; $i <= 2; $i++) {
                 $matkul = array(
                     'id_ta'         => $id_ta,
                     'nama_matkul'   => $this->input->post('mk'.$i),
@@ -131,8 +131,9 @@ class TaModel extends CI_Model {
             // 'kode_peminatan' => $this->input->post('kode_peminatan'),
         );
 
-        $id_ta  = $this->db->post('id_ta');
-        $ta     =$this->db->update('ta',$data);
+        $id_ta  = array('id_ta'=>$this->input->post('id_ta'));
+
+        $ta     =$this->db->update('ta',$data,$id_ta);
 
         if($ta){
             $mhs = array(
@@ -144,19 +145,19 @@ class TaModel extends CI_Model {
             $pembimbing = array(
                 'pembimbing1'   => $this->input->post('pembimbing1'),
                 'pembimbing2'   => $this->input->post('pembimbing2'),
-                'id_ta'         => $id_ta,
             );
-            $this->db->insert('pembimbing',$pembimbing);
+            $this->db->update('pembimbing',$pembimbing,$id_ta);
+            
 
-            for ($i = 1; $i <= 3; $i++) {
+            //Update Matkul perlu diperbaiki
+            for ($i = 0; $i <= 2; $i++) {
                 $matkul = array(
-                    'id_ta'         => $id_ta,
                     'nama_matkul'   => $this->input->post('mk'.$i),
                     'kode_matkul'   => $this->input->post('kode_mk'.$i),
                     'ip'            => $this->input->post('nilai_mk'.$i),
                     'huruf'         => $this->input->post('huruf_mk'.$i),
                 );
-                $this->db->insert('matkul',$matkul);
+                $this->db->update('matkul',$matkul,$id_ta);
             }
         }
     }

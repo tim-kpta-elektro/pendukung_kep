@@ -132,7 +132,7 @@
                 <a class="nav-submenu" data-toggle="nav-submenu" href="#"><i class="si si-cup"></i><span class="sidebar-mini-hide">Seminar Hasil</span></a>
                 <ul>
                     <li>
-                        <a href="#">Pengajuan Seminar</a>
+                        <a href="<?php echo base_url('backend/seminar_ta');?>">Pengajuan Seminar</a>
                     </li>
                 </ul>
             </li>

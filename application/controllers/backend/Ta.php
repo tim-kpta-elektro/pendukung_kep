@@ -12,18 +12,43 @@ class Ta extends CI_Controller {
 
 	function index(){
 		$session = $_SESSION['nim'];
-		$result['dosens']= $this->TaModel->dosens();
 		$result['data']= $this->TaModel->mahasiswa($session);
+		$result['dosens']= $this->TaModel->dosens();
 		$result["pending"] = $this->TaModel->pending($session);
 		$result["setuju"] = $this->TaModel->setuju($session);
 		$result["tolak"] = $this->TaModel->tolak($session);
 
 		if($result["setuju"] != NULL){
-			redirect('backend/ta/pengajuan_setuju');
+			$result['ta']= $this->TaModel->ta($session);
+			$id_ta=$result['ta']->id_ta;
+			$result['pembimbing1']= $this->TaModel->pembimbing1($id_ta);
+			$result['pembimbing2']= $this->TaModel->pembimbing2($id_ta);
+			$result['matkul']= $this->TaModel->matkul($id_ta);
+	
+			$this->load->view('ta/pengajuan_setuju',$result);
+			// redirect('backend/ta/pengajuan_setuju');
 		}else if($result["pending"] != NULL){
-			redirect('backend/ta/pengajuan_pending');
+			$result['ta']= $this->TaModel->ta($session);
+			$id_ta=$result['ta']->id_ta;
+			$result['pembimbing1']= $this->TaModel->pembimbing1($id_ta);
+			$result['pembimbing2']= $this->TaModel->pembimbing2($id_ta);
+			$result['matkul']= $this->TaModel->matkul($id_ta);
+	
+			$this->load->view('ta/pengajuan_pending',$result);
+			
+			// redirect('backend/ta/pengajuan_pending');
 		}elseif($result["tolak"] != NULL){
-			redirect('backend/ta/pengajuan_tolak');
+			$session = $_SESSION['nim'];
+			$result['data']= $this->TaModel->mahasiswa($session);
+			$result['ta']= $this->TaModel->ta($session);
+			$id_ta=$result['ta']->id_ta;
+			$result['pembimbing1']= $this->TaModel->pembimbing1($id_ta);
+			$result['pembimbing2']= $this->TaModel->pembimbing2($id_ta);
+			$result['matkul']= $this->TaModel->matkul($id_ta);
+			$result['dosens']= $this->TaModel->dosens();
+			
+			$this->load->view('ta/pengajuan_tolak',$result);
+			// redirect('backend/ta/pengajuan_tolak');
 		}else if($result != NULL){
 			$this->load->view('ta/pengajuan',$result);
 		}else{
@@ -36,7 +61,7 @@ class Ta extends CI_Controller {
 		$validation->set_rules('judul','Judul','required');
 		if($validation->run() == TRUE){
 			$this->TaModel->save_ta();
-			redirect('backend/ta/pengajuan_pending');
+			redirect('backend/ta');
 		}else{
 			redirect('backend/ta');
 		}
@@ -47,7 +72,7 @@ class Ta extends CI_Controller {
 		$validation->set_rules('judul','Judul','required');
 		if($validation->run() == TRUE){
 			$this->TaModel->update_ta();
-			redirect('backend/ta/pengajuan_pending');
+			redirect('backend/ta');
 		}else{
 			redirect('backend/ta');
 		}
