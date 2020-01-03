@@ -16,9 +16,9 @@ class Seminar_TA extends CI_Controller {
 		$session = $_SESSION['nim'];
 		$result['ta_setuju']= $this->SemTaModel->ta_setuju($session);
 		$id_ta=$result['ta_setuju']->id_ta;
-        $result['ruang'] = $this->KpModel->ruang();
 
 		if($result['ta_setuju'] != NULL){
+			$result['ruang'] = $this->KpModel->ruang();
 			$result['dosens']= $this->TaModel->dosens();
 			$result['data']= $this->TaModel->mahasiswa($session);
 			$result['pembimbing1']= $this->TaModel->pembimbing1($id_ta);
@@ -35,7 +35,7 @@ class Seminar_TA extends CI_Controller {
 				$this->load->view('ta/seminar/pengajuan_setuju',$result);
 			}
 		}else{
-			//Halaman ketika status ta != Setuju
+			$this->load->view('kp/error_pem');
 		}	
 	}
 
@@ -44,6 +44,17 @@ class Seminar_TA extends CI_Controller {
 		$validation->set_rules('tanggal','Tanggal','required');
 		if($validation->run() == TRUE){
 			$this->SemTaModel->save_seminar();
+			redirect('backend/seminar_ta');
+		}else{
+			redirect('backend/seminar_ta');
+		}
+	}
+
+	function pengajuan_kembali(){
+		$validation = $this->form_validation;
+		$validation->set_rules('tanggal','Tanggal','required');
+		if($validation->run() == TRUE){
+			$this->SemTaModel->update_seminar();
 			redirect('backend/seminar_ta');
 		}else{
 			redirect('backend/seminar_ta');
