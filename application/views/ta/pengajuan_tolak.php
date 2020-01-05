@@ -159,6 +159,7 @@
                                         foreach($matkul as $key=>$matkul){
                                             
                                         ?>
+                                            <input type="text" class="form-control" name="id<?php print($key)?>" value="<?php echo $matkul->id?>" hidden><br>
                                         <div class="col-3">
                                             <input type="text" class="form-control" name="kode_mk<?php print($key)?>" value="<?php echo $matkul->kode_matkul?>" ><br>
                                         </div>
@@ -226,7 +227,7 @@
                                     <div class="form-group">
                                         <label for="sks">Pembimbing 1 Tugas Akhir</label>
                                         <select class="form-control" name="pembimbing1" id="">
-                                            <option value="" selected="selected" disabled><?php echo $pembimbing1->nama_dosen?></option>
+                                            <option value="<?php echo $pembimbing1->id_dosen?>" selected="selected" readonly><?php echo $pembimbing1->nama_dosen?></option>
                                             <?php
                                             foreach($dosens as $dosen){
                                             ?>
@@ -239,7 +240,7 @@
                                     <div class="form-group">
                                         <label for="sks">Pembimbing 2 Tugas Akhir</label>
                                         <select class="form-control" name="pembimbing2" id="">
-                                            <option value="" selected="selected" disabled><?php echo $pembimbing2->nama_dosen?></option>
+                                            <option value="<?php echo $pembimbing2->id_dosen?>" selected="selected" readonly><?php echo $pembimbing2->nama_dosen?></option>
                                             <?php
                                             foreach($dosens as $dosen){
                                             ?>

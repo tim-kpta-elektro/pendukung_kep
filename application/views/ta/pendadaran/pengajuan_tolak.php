@@ -84,11 +84,11 @@
             <div class="content">
                 <div class="block">
                     <div class="block-header block-header-default">
-                        <h1 class="block-title" style="text-align: center; color: green;">Pengajuan Seminar Hasil Telah <b>DISETUJUI</b><br>Silahkan Cetak Berkas yang Diperlukan</h1>
+                        <h1 class="block-title" style="text-align: center; color: red;">Pengajuan Pendadaran Anda <b>DITOLAK<b><br>Mohon Update Data Anda</h1>
                     </div>
                 </div>
-                <form action="<?php echo base_url('backend/seminar_ta/pengajuan') ?>" method="post">
-                <h2 class="content-heading">Pengajuan Seminar Hasil</h2>
+                <form action="<?php echo base_url('backend/pendadaran_ta/pengajuan_kembali') ?>" method="post">
+                <h2 class="content-heading">Pengajuan Pendadaran</h2>
                 <div class="row">
                     <div class="col-md-6">
                         <div class="block">
@@ -113,24 +113,24 @@
                                             <input type="text" class="form-control" name="nama" value="<?php echo $data->nama_mhs ?>" placeholder="masukkan nama" readonly>
                                         </div>
                                     </div>
-                                    <input type="text" class="form-control" value="PENDING" name="status_seminar" hidden>
+                                    <input type="text" class="form-control" value="PENDING" name="status_pendadaran" hidden>
                                     <div class="form-group row">
                                         <label class="col-12" for="example-text-input">Total SKS</label>
                                         <div class="col-md-12">
-                                            <input type="number" step="1" min="0" class="form-control" name="sks" value="<?php echo $data->sks ?>" readonly>
+                                            <input type="number" step="1" min="0" class="form-control" name="sks" value="<?php echo $data->sks ?>" placeholder="Total SKS yang dicapai">
                                         </div>
                                     </div>
                                     <div class="form-group row">
                                         <label class="col-12" for="example-text-input">Indeks Prestasi Kumulatif</label>
                                         <div class="col-md-12">
-                                            <input type="number" step="0.01" min="0" max="4" class="form-control" value="<?php echo $data->ipk ?>" name="ipk" readonly>
+                                            <input type="number" step="0.01" min="0" max="4" class="form-control" value="<?php echo $data->ipk ?>" name="ipk" placeholder="IPK terakhir">
                                         </div>
                                     </div>                                  
                             </div>
                         </div>
                         <div class="block">
                             <div class="block-header block-header-default">
-                                <h3 class="block-title">Seminar Hasil</h3>
+                                <h3 class="block-title">Pendadaran</h3>
                                 <div class="block-options">
                                     <button type="button" class="btn-block-option">
                                         <i class="si si-wrench"></i>
@@ -140,23 +140,23 @@
 
                             <div class="block-content block-content-full">
                                 <div class="form-group row">
-                                    <label class="col-12" for="example-text-input">Tanggal Seminar</label>
+                                    <label class="col-12" for="example-text-input">Tanggal Pendadaran</label>
                                     <div class="col-md-12"> 
-                                        <input type="text" class="form-control" name="tanggal" value="<?php echo($setuju->tanggal)?>" readonly>
+                                        <input type="text" class="form-control bg-white" id="flatpickr2" name="tanggal" value="<?php echo($tolak->tanggal)?>" placeholder="Y-m-d">
                                     </div>
                                 </div>
                                 <div class="form-group">
-                                    <label for="jam mulai">Jam Mulai Seminar</label>
-                                    <input type="text" class="form-control" name="jam_mulai"  value="<?php echo($setuju->jam_mulai)?>" readonly>
+                                    <label for="jam mulai">Jam Mulai Pendadaran</label>
+                                    <input type="text" class="form-control bg-white" name="jam_mulai" id="flatpickr" value="<?php echo($tolak->jam_mulai)?>" placeholder="Masukkan Jam Seminar Dimulai">
                                 </div>
                                 <div class="form-group">
-                                    <label for="jam selesai">Jam Selesai Seminar</label>
-                                    <input type="text" class="form-control" name="jam_selesai"  value="<?php echo($setuju->jam_selesai)?>" readonly>
+                                    <label for="jam selesai">Jam Selesai Pendadaran</label>
+                                    <input type="text" class="form-control bg-white" name="jam_selesai" id="flatpickr" value="<?php echo($tolak->jam_selesai)?>" placeholder="Masukkan Jam Seminar Selesai">
                                 </div>
                                 <div class="form-group">
                                     <label for="acceptor">Ruang:</label>
-                                    <select class="form-control" name="tempat" id="" disabled>
-                                        <option selected="selected" disabled><?php echo($setuju->nama_ruang)?></option>
+                                    <select class="form-control" name="tempat" id="">
+                                        <option value="9" selected="selected" disabled><?php echo($tolak->nama_ruang)?></option>
                                         <?php foreach ($ruang as $ruangs): ?>
                                             <option name="ruang_id" value="<?php echo $ruangs->id_ruang ?>"><?php echo $ruangs->nama_ruang?></option>
                                         <?php endforeach; ?>
@@ -176,17 +176,17 @@
                                 </div>
                             </div>
                             <div class="block-content">
-                                    <input type="text" class="form-control" value="<?php echo $ta_setuju->id_ta?>" name="id_ta" hidden>
+                                    <input type="text" class="form-control" value="<?php echo $seminar_setuju->id_ta?>" name="id_ta" hidden>
                                     <div class="form-group row">
                                         <label class="col-12" for="example-text-input">Judul</label>
                                         <div class="col-md-12">
-                                            <input type="text" class="form-control" id="example-text-input" name="judul" value="<?php echo $ta_setuju->judul ?>" readonly>
+                                            <input type="text" class="form-control" id="example-text-input" name="judul" value="<?php echo $seminar_setuju->judul ?>" readonly>
                                         </div>
                                     </div>
                                     <div class="form-group row">
                                         <label class="col-12" for="example-text-input">Abstrak</label>
                                         <div class="col-md-12">
-                                            <input type="text" class="form-control" id="example-text-input" name="abstrak" value="<?php echo $ta_setuju->abstrak ?>" readonly>
+                                            <input type="text" class="form-control" id="example-text-input" name="abstrak" value="<?php echo $seminar_setuju->abstrak ?>" readonly>
                                         </div>
                                     </div>
                             </div>
@@ -209,6 +209,11 @@
                                 <div class="form-group">
                                     <label for="sks">Pembimbing 2 Tugas Akhir</label>
                                     <input type="text" class="form-control "  name="tgl_pengajuan" Value="<?php echo $pembimbing2->nama_dosen?>" readonly>
+                                </div>
+                                <div class="form-group row">
+                                    <div class="col-lg-12 ml-auto">
+                                        <button type="submit" class="btn btn-alt-primary">Daftar</button>
+                                    </div>
                                 </div>
                             </div>
                         </div>

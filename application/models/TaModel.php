@@ -147,7 +147,6 @@ class TaModel extends CI_Model {
                 'pembimbing2'   => $this->input->post('pembimbing2'),
             );
             $this->db->update('pembimbing',$pembimbing,$id_ta);
-            
 
             //Update Matkul perlu diperbaiki
             for ($i = 0; $i <= 2; $i++) {
@@ -157,7 +156,7 @@ class TaModel extends CI_Model {
                     'ip'            => $this->input->post('nilai_mk'.$i),
                     'huruf'         => $this->input->post('huruf_mk'.$i),
                 );
-                $this->db->update('matkul',$matkul,$id_ta);
+                $this->db->update('matkul',$matkul,array('id'=>$this->input->post('id'.$i)));
             }
         }
     }
