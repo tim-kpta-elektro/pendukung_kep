@@ -33,6 +33,8 @@ class Seminar_TA extends CI_Controller {
 				$this->load->view('ta/seminar/pengajuan_tolak',$result);
 			}else if($result["setuju"]){
 				$this->load->view('ta/seminar/pengajuan_setuju',$result);
+			}else{
+				$this->load->view('ta/seminar/pengajuan',$result);
 			}
 		}else{
 			$this->load->view('kp/error_pem');

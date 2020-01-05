@@ -87,8 +87,8 @@
                         <h1 class="block-title" style="text-align: center; color: green;">Pengajuan Pendadaran Telah <b>DISETUJUI</b><br>Silahkan Cetak Berkas yang Diperlukan</h1>
                     </div>
                 </div>
-                <form action="<?php echo base_url('backend/seminar_ta/pengajuan') ?>" method="post">
-                <h2 class="content-heading">Pengajuan Seminar Hasil</h2>
+                <form action="<?php echo base_url('backend/Pendadaran_TA/pengajuan') ?>" method="post">
+                <h2 class="content-heading">Pengajuan Pendadaran</h2>
                 <div class="row">
                     <div class="col-md-6">
                         <div class="block">
@@ -113,7 +113,7 @@
                                             <input type="text" class="form-control" name="nama" value="<?php echo $data->nama_mhs ?>" placeholder="masukkan nama" readonly>
                                         </div>
                                     </div>
-                                    <input type="text" class="form-control" value="PENDING" name="status_seminar" hidden>
+                                    <input type="text" class="form-control" value="PENDING" name="status_pendadaran" hidden>
                                     <div class="form-group row">
                                         <label class="col-12" for="example-text-input">Total SKS</label>
                                         <div class="col-md-12">
@@ -130,7 +130,7 @@
                         </div>
                         <div class="block">
                             <div class="block-header block-header-default">
-                                <h3 class="block-title">Seminar Hasil</h3>
+                                <h3 class="block-title">Pendadaran</h3>
                                 <div class="block-options">
                                     <button type="button" class="btn-block-option">
                                         <i class="si si-wrench"></i>
@@ -140,17 +140,17 @@
 
                             <div class="block-content block-content-full">
                                 <div class="form-group row">
-                                    <label class="col-12" for="example-text-input">Tanggal Seminar</label>
+                                    <label class="col-12" for="example-text-input">Tanggal Pendadaran</label>
                                     <div class="col-md-12"> 
                                         <input type="text" class="form-control" name="tanggal" value="<?php echo($setuju->tanggal)?>" readonly>
                                     </div>
                                 </div>
                                 <div class="form-group">
-                                    <label for="jam mulai">Jam Mulai Seminar</label>
+                                    <label for="jam mulai">Jam Mulai Pendadaran</label>
                                     <input type="text" class="form-control" name="jam_mulai"  value="<?php echo($setuju->jam_mulai)?>" readonly>
                                 </div>
                                 <div class="form-group">
-                                    <label for="jam selesai">Jam Selesai Seminar</label>
+                                    <label for="jam selesai">Jam Selesai Pendadaran</label>
                                     <input type="text" class="form-control" name="jam_selesai"  value="<?php echo($setuju->jam_selesai)?>" readonly>
                                 </div>
                                 <div class="form-group">
@@ -176,17 +176,17 @@
                                 </div>
                             </div>
                             <div class="block-content">
-                                    <input type="text" class="form-control" value="<?php echo $ta_setuju->id_ta?>" name="id_ta" hidden>
+                                    <input type="text" class="form-control" value="<?php echo $seminar_setuju->id_ta?>" name="id_ta" hidden>
                                     <div class="form-group row">
                                         <label class="col-12" for="example-text-input">Judul</label>
                                         <div class="col-md-12">
-                                            <input type="text" class="form-control" id="example-text-input" name="judul" value="<?php echo $ta_setuju->judul ?>" readonly>
+                                            <input type="text" class="form-control" id="example-text-input" name="judul" value="<?php echo $seminar_setuju->judul ?>" readonly>
                                         </div>
                                     </div>
                                     <div class="form-group row">
                                         <label class="col-12" for="example-text-input">Abstrak</label>
                                         <div class="col-md-12">
-                                            <input type="text" class="form-control" id="example-text-input" name="abstrak" value="<?php echo $ta_setuju->abstrak ?>" readonly>
+                                            <input type="text" class="form-control" id="example-text-input" name="abstrak" value="<?php echo $seminar_setuju->abstrak ?>" readonly>
                                         </div>
                                     </div>
                             </div>

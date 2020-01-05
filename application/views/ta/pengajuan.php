@@ -150,6 +150,7 @@
                                         </div>
 
                                         <?php
+                                        
                                         for ($i = 0; $i <= 2; $i++){
                                         ?>
                                         <div class="col-3">

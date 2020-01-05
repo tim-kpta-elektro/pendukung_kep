@@ -10,26 +10,27 @@ class PendTaModel extends CI_Model {
         return $this->db->get()->row();
     }
 
-    public function ta_setuju($session){
+    public function seminar_setuju($session){
         $this->db->select('*');
-        $this->db->from('ta');
+        $this->db->from('seminar_ta');
+        $this->db->join('ta','seminar_ta.id_ta=ta.id_ta');
         $this->db->where('nim_mhs',$session);
-        $this->db->where('status_TA','SETUJU');
+        $this->db->where('status_seminar','SETUJU');
         return $this->db->get()->row();
     }
 
-    public function save_seminar(){
+    public function save_pendadaran(){
         $data = array(
-            'id_ta' => $this->input->post('id_ta'),
-            'tanggal' => $this->input->post('tanggal'),
-            'jam_mulai' => $this->input->post('jam_mulai'),
-            'jam_selesai' => $this->input->post('jam_selesai'),
-            'tempat' => $this->input->post('tempat'),
-            'status_seminar' => $this->input->post('status_seminar'),
+            'id_ta'         => $this->input->post('id_ta'),
+            'tanggal'       => $this->input->post('tanggal'),
+            'jam_mulai'     => $this->input->post('jam_mulai'),
+            'jam_selesai'   => $this->input->post('jam_selesai'),
+            'tempat'        => $this->input->post('tempat'),
+            'status_pendadaran' => $this->input->post('status_pendadaran'),
         );
-        $seminar     =$this->db->insert('seminar_ta',$data);
+        $pendadaran     =$this->db->insert('pendadaran',$data);
 
-        if($seminar){
+        if($pendadaran){
             $mhs = array(
                 'sks' => $this->input->post('sks'),
                 'ipk' => $this->input->post('ipk')
@@ -38,7 +39,7 @@ class PendTaModel extends CI_Model {
         }
     }
 
-    public function update_seminar(){
+    public function update_pendadaran(){
         $data = array(
             'id_ta' => $this->input->post('id_ta'),
             'tanggal' => $this->input->post('tanggal'),
@@ -47,9 +48,9 @@ class PendTaModel extends CI_Model {
             'tempat' => $this->input->post('tempat'),
             'status_seminar' => $this->input->post('status_seminar'),
         );
-        $seminar     =$this->db->update('seminar_ta',$data,array('id_ta' => $this->input->post('id_ta')));
+        $pendadaran     =$this->db->update('pendadaran',$data,array('id_ta' => $this->input->post('id_ta')));
 
-        if($seminar){
+        if($pendadaran){
             $mhs = array(
                 'sks' => $this->input->post('sks'),
                 'ipk' => $this->input->post('ipk')
@@ -60,31 +61,34 @@ class PendTaModel extends CI_Model {
 
     public function pending($session){
         $this->db->select('*');
-        $this->db->from('seminar_ta');
-        $this->db->join('ta','seminar_ta.id_ta = ta.id_ta');
-        $this->db->join('ref_ruang','seminar_ta.tempat = ref_ruang.id_ruang');
+        $this->db->from('pendadaran');
+        $this->db->join('ta','pendadaran.id_ta = ta.id_ta');
+        $this->db->join('seminar_ta','pendadaran.id_ta = seminar_ta.id_ta');
+        $this->db->join('ref_ruang','pendadaran.tempat = ref_ruang.id_ruang');
         $this->db->where('ta.nim_mhs',$session);
-        $this->db->where('status_seminar','PENDING');
+        $this->db->where('status_pendadaran','PENDING');
         return $this->db->get()->row();
     }
 
     public function tolak($session){
         $this->db->select('*');
-        $this->db->from('seminar_ta');
-        $this->db->join('ta','seminar_ta.id_ta = ta.id_ta');
-        $this->db->join('ref_ruang','seminar_ta.tempat = ref_ruang.id_ruang');
+        $this->db->from('pendadaran');
+        $this->db->join('ta','pendadaran.id_ta = ta.id_ta');
+        $this->db->join('seminar_ta','pendadaran.id_ta = seminar_ta.id_ta');
+        $this->db->join('ref_ruang','pendadaran.tempat = ref_ruang.id_ruang');
         $this->db->where('ta.nim_mhs',$session);
-        $this->db->where('status_seminar','TOLAK');
+        $this->db->where('status_pendadaran','TOLAK');
         return $this->db->get()->row();
     }
 
     public function setuju($session){
         $this->db->select('*');
-        $this->db->from('seminar_ta');
-        $this->db->join('ta','seminar_ta.id_ta = ta.id_ta');
-        $this->db->join('ref_ruang','seminar_ta.tempat = ref_ruang.id_ruang');
+        $this->db->from('pendadaran');
+        $this->db->join('ta','pendadaran.id_ta = ta.id_ta');
+        $this->db->join('seminar_ta','pendadaran.id_ta = seminar_ta.id_ta');
+        $this->db->join('ref_ruang','pendadaran.tempat = ref_ruang.id_ruang');
         $this->db->where('ta.nim_mhs',$session);
-        $this->db->where('status_seminar','SETUJU');
+        $this->db->where('status_pendadaran','SETUJU');
         return $this->db->get()->row();
     }
 

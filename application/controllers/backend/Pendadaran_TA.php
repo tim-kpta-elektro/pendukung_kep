@@ -14,10 +14,10 @@ class Pendadaran_TA extends CI_Controller {
 
 	function index(){
 		$session = $_SESSION['nim'];
-		$result['ta_setuju']= $this->PendTaModel->ta_setuju($session);
-		$id_ta=$result['ta_setuju']->id_ta;
+		$result['seminar_setuju']= $this->PendTaModel->seminar_setuju($session);
+		$id_ta=$result['seminar_setuju']->id_ta;
 
-		if($result['ta_setuju'] != NULL){
+		if($result['seminar_setuju'] != NULL){
 			$result['ruang'] = $this->KpModel->ruang();
 			$result['dosens']= $this->TaModel->dosens();
 			$result['data']= $this->TaModel->mahasiswa($session);
@@ -28,11 +28,13 @@ class Pendadaran_TA extends CI_Controller {
 			$result["tolak"] = $this->PendTaModel->tolak($session);
 			$result["setuju"] = $this->PendTaModel->setuju($session);
 			if($result["pending"]){
-				$this->load->view('ta/seminar/pengajuan_pending',$result);
+				$this->load->view('ta/pendadaran/pengajuan_pending',$result);
 			}else if($result["tolak"]){
-				$this->load->view('ta/seminar/pengajuan_tolak',$result);
+				$this->load->view('ta/pendadaran/pengajuan_tolak',$result);
 			}else if($result["setuju"]){
-				$this->load->view('ta/seminar/pengajuan_setuju',$result);
+				$this->load->view('ta/pendadaran/pengajuan_setuju',$result);
+			}else{
+				$this->load->view('ta/pendadaran/pengajuan',$result);
 			}
 		}else{
 			$this->load->view('kp/error_pem');
@@ -43,10 +45,10 @@ class Pendadaran_TA extends CI_Controller {
 		$validation = $this->form_validation;
 		$validation->set_rules('tanggal','Tanggal','required');
 		if($validation->run() == TRUE){
-			$this->PendTaModel->save_seminar();
-			redirect('backend/seminar_ta');
+			$this->PendTaModel->save_pendadaran();
+			redirect('backend/pendadaran_ta');
 		}else{
-			redirect('backend/seminar_ta');
+			redirect('backend/pendadaran_ta');
 		}
 	}
 
@@ -54,10 +56,10 @@ class Pendadaran_TA extends CI_Controller {
 		$validation = $this->form_validation;
 		$validation->set_rules('tanggal','Tanggal','required');
 		if($validation->run() == TRUE){
-			$this->PendTaModel->update_seminar();
-			redirect('backend/seminar_ta');
+			$this->PendTaModel->update_pendadaran();
+			redirect('backend/pendadaran_ta');
 		}else{
-			redirect('backend/seminar_ta');
+			redirect('backend/pendadaran_ta');
 		}
 	}
 
