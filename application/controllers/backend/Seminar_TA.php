@@ -15,9 +15,10 @@ class Seminar_TA extends CI_Controller {
 	function index(){
 		$session = $_SESSION['nim'];
 		$result['ta_setuju']= $this->SemTaModel->ta_setuju($session);
-		$id_ta=$result['ta_setuju']->id_ta;
 
 		if($result['ta_setuju'] != NULL){
+			$id_ta=$result['ta_setuju']->id_ta;
+
 			$result['ruang'] = $this->KpModel->ruang();
 			$result['dosens']= $this->TaModel->dosens();
 			$result['data']= $this->TaModel->mahasiswa($session);
@@ -37,7 +38,7 @@ class Seminar_TA extends CI_Controller {
 				$this->load->view('ta/seminar/pengajuan',$result);
 			}
 		}else{
-			$this->load->view('kp/error_pem');
+			$this->load->view('ta/error/pengajuan_seminar');
 		}	
 	}
 

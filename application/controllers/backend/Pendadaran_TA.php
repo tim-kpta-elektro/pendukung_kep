@@ -15,9 +15,9 @@ class Pendadaran_TA extends CI_Controller {
 	function index(){
 		$session = $_SESSION['nim'];
 		$result['seminar_setuju']= $this->PendTaModel->seminar_setuju($session);
-		$id_ta=$result['seminar_setuju']->id_ta;
 
 		if($result['seminar_setuju'] != NULL){
+			$id_ta=$result['seminar_setuju']->id_ta;
 			$result['ruang'] = $this->KpModel->ruang();
 			$result['dosens']= $this->TaModel->dosens();
 			$result['data']= $this->TaModel->mahasiswa($session);
@@ -37,7 +37,8 @@ class Pendadaran_TA extends CI_Controller {
 				$this->load->view('ta/pendadaran/pengajuan',$result);
 			}
 		}else{
-			$this->load->view('kp/error_pem');
+			$this->load->view('ta/error/pengajuan_pendadaran');
+
 		}	
 	}
 
