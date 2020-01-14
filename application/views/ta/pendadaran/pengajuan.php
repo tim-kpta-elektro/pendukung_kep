@@ -82,7 +82,7 @@
         <!-- Main Container -->
         <main id="main-container">
             <div class="content">
-                <form action="<?php echo base_url('backend/Pendadaran_TA/pengajuan') ?>" method="post">
+                <form action="<?php echo base_url('backend/pendadaranta/pengajuan') ?>" method="post">
                 <h2 class="content-heading">Pengajuan Pendadaran</h2>
                 <div class="row">
                     <div class="col-md-6">

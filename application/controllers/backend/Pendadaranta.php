@@ -1,12 +1,12 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
  
-class Seminar_TA extends CI_Controller {
+class Pendadaranta extends CI_Controller {
 
     function __construct()
 	{
 		parent::__construct();
-		$this->load->model('SemTaModel');
+		$this->load->model('PendTaModel');
 		$this->load->model('TaModel');
 		$this->load->model('KpModel');
 		$this->load->library('form_validation');
@@ -14,31 +14,31 @@ class Seminar_TA extends CI_Controller {
 
 	function index(){
 		$session = $_SESSION['nim'];
-		$result['ta_setuju']= $this->SemTaModel->ta_setuju($session);
+		$result['seminar_setuju']= $this->PendTaModel->seminar_setuju($session);
 
-		if($result['ta_setuju'] != NULL){
-			$id_ta=$result['ta_setuju']->id_ta;
-
+		if($result['seminar_setuju'] != NULL){
+			$id_ta=$result['seminar_setuju']->id_ta;
 			$result['ruang'] = $this->KpModel->ruang();
 			$result['dosens']= $this->TaModel->dosens();
 			$result['data']= $this->TaModel->mahasiswa($session);
 			$result['pembimbing1']= $this->TaModel->pembimbing1($id_ta);
 			$result['pembimbing2']= $this->TaModel->pembimbing2($id_ta);
 
-			$result["pending"] = $this->SemTaModel->pending($session);
-			$result["tolak"] = $this->SemTaModel->tolak($session);
-			$result["setuju"] = $this->SemTaModel->setuju($session);
+			$result["pending"] = $this->PendTaModel->pending($session);
+			$result["tolak"] = $this->PendTaModel->tolak($session);
+			$result["setuju"] = $this->PendTaModel->setuju($session);
 			if($result["pending"]){
-				$this->load->view('ta/seminar/pengajuan_pending',$result);
+				$this->load->view('ta/pendadaran/pengajuan_pending',$result);
 			}else if($result["tolak"]){
-				$this->load->view('ta/seminar/pengajuan_tolak',$result);
+				$this->load->view('ta/pendadaran/pengajuan_tolak',$result);
 			}else if($result["setuju"]){
-				$this->load->view('ta/seminar/pengajuan_setuju',$result);
+				$this->load->view('ta/pendadaran/pengajuan_setuju',$result);
 			}else{
-				$this->load->view('ta/seminar/pengajuan',$result);
+				$this->load->view('ta/pendadaran/pengajuan',$result);
 			}
 		}else{
-			$this->load->view('ta/error/pengajuan_seminar');
+			$this->load->view('ta/error/pengajuan_pendadaran');
+
 		}	
 	}
 
@@ -46,10 +46,10 @@ class Seminar_TA extends CI_Controller {
 		$validation = $this->form_validation;
 		$validation->set_rules('tanggal','Tanggal','required');
 		if($validation->run() == TRUE){
-			$this->SemTaModel->save_seminar();
-			redirect('backend/seminar_ta');
+			$this->PendTaModel->save_pendadaran();
+			redirect('backend/pendadaranta');
 		}else{
-			redirect('backend/seminar_ta');
+			redirect('backend/pendadaranta');
 		}
 	}
 
@@ -57,10 +57,10 @@ class Seminar_TA extends CI_Controller {
 		$validation = $this->form_validation;
 		$validation->set_rules('tanggal','Tanggal','required');
 		if($validation->run() == TRUE){
-			$this->SemTaModel->update_seminar();
-			redirect('backend/seminar_ta');
+			$this->PendTaModel->update_pendadaran();
+			redirect('backend/pendadaranta');
 		}else{
-			redirect('backend/seminar_ta');
+			redirect('backend/pendadaranta');
 		}
 	}
 

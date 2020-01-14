@@ -82,7 +82,7 @@
         <!-- Main Container -->
         <main id="main-container">
             <div class="content">
-                <form action="<?php echo base_url('backend/seminar_ta/pengajuan') ?>" method="post">
+                <form action="<?php echo base_url('backend/seminarta/pengajuan') ?>" method="post">
                 <h2 class="content-heading">Pengajuan Tugas Akhir</h2>
                 <div class="row">
                     <div class="col-md-6">

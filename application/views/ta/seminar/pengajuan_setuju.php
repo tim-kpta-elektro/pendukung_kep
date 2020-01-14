@@ -87,7 +87,7 @@
                         <h1 class="block-title" style="text-align: center; color: green;">Pengajuan Seminar Hasil Telah <b>DISETUJUI</b><br>Silahkan Cetak Berkas yang Diperlukan</h1>
                     </div>
                 </div>
-                <form action="<?php echo base_url('backend/seminar_ta/pengajuan') ?>" method="post">
+                <form action="<?php echo base_url('backend/seminarta/pengajuan') ?>" method="post">
                 <h2 class="content-heading">Pengajuan Seminar Hasil</h2>
                 <div class="row">
                     <div class="col-md-6">

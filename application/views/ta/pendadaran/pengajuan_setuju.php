@@ -87,7 +87,7 @@
                         <h1 class="block-title" style="text-align: center; color: green;">Pengajuan Pendadaran Telah <b>DISETUJUI</b><br>Silahkan Cetak Berkas yang Diperlukan</h1>
                     </div>
                 </div>
-                <form action="<?php echo base_url('backend/Pendadaran_TA/pengajuan') ?>" method="post">
+                <form action="<?php echo base_url('backend/pendadaranta/pengajuan') ?>" method="post">
                 <h2 class="content-heading">Pengajuan Pendadaran</h2>
                 <div class="row">
                     <div class="col-md-6">

@@ -1,7 +1,7 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
  
-class Laporan_Ta extends CI_Controller {
+class Laporanta extends CI_Controller {
 	
 	function berita_acara(){
       $this->pdf->setPaper('A4','potrait');

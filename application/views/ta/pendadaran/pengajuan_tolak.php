@@ -87,7 +87,7 @@
                         <h1 class="block-title" style="text-align: center; color: red;">Pengajuan Pendadaran Anda <b>DITOLAK<b><br>Mohon Update Data Anda</h1>
                     </div>
                 </div>
-                <form action="<?php echo base_url('backend/pendadaran_ta/pengajuan_kembali') ?>" method="post">
+                <form action="<?php echo base_url('backend/pendadaranta/pengajuan_kembali') ?>" method="post">
                 <h2 class="content-heading">Pengajuan Pendadaran</h2>
                 <div class="row">
                     <div class="col-md-6">
