@@ -70,6 +70,7 @@ $route['semkp/cetak_undangan'] = 'backend/semkp/cetak_undangan';
 $route['semkp/cetak_daftarhadir'] = 'backend/semkp/cetak_daftarhadir';
 
 //Route Admin
+$route['pembimbing'] = 'admin/admin';
 $route['daftarmhs'] = 'admin/adminkp';
 $route['requestkp'] = 'admin/adminkp/pengajuankp';
 $route['seminarkp'] = 'admin/adminkp/seminarkp';
