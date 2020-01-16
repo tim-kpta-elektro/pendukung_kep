@@ -20,15 +20,17 @@ class Kp extends MY_Controller {
 		$pending = $this->KpModel->pending($session);
 		$setuju = $this->KpModel->setuju($session);
 		$tolak = $this->KpModel->tolak($session);
+		$waiting = $this->KpModel->waiting($session);
 
 		if($setuju != NULL){
 			$this->load->view('kp/kp_setuju',['setuju' => $setuju]);
+		}else if($waiting != NULL){
+			$this->load->view('kp/kp_waiting',['waiting' => $waiting]);
 		}else if($pending != NULL){
 			$this->load->view('kp/kp_pending',['data' => $pending]);
 		}elseif($tolak != NULL){
 			$this->load->view('kp/kp_tolak',['tolak' => $tolak]);
 		}else if($result != NULL){
-			//var_dump($result);
 			$this->load->view('kp/kp_pengajuan',['data' => $result]);
 		}else{
 			$this->load->view('kp/error_pem');

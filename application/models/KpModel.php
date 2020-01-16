@@ -37,6 +37,15 @@ class KpModel extends CI_Model{
         return $this->db->get()->row();
     }
 
+    public function waiting($session){
+        $this->db->select('*');
+        $this->db->from('kp');
+        $this->db->join('mahasiswa','id_mahasiswa = mahasiswa_id');
+        $this->db->where('nim',$session);
+        $this->db->where('status_kp','WAITING');
+        return $this->db->get()->row();
+    }
+
     public function save_kp(){
         date_default_timezone_set('Asia/Jakarta');
 

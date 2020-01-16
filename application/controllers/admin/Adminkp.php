@@ -61,7 +61,7 @@ class Adminkp extends MY_Controller {
     public function updatekp(){
         switch ($this->input->post('action')) {
             case 'setuju':
-                $this->AkpModel->setuju();
+                $this->AkpModel->waiting();
                 $this->session->set_flashdata('success', 'Update Pengajuan KP Berhasil disimpan');
                 return redirect('requestkp');
                 break;
@@ -70,6 +70,36 @@ class Adminkp extends MY_Controller {
                 $this->AkpModel->tolak();
                 $this->session->set_flashdata('success', 'Update Pengajuan KP Berhasil disimpan');
                 return redirect('requestkp');
+                break;
+            }
+    }
+
+    public function balasankp(){
+        $data = $this->AkpModel->balaskp();
+        return $this->load->view('admin/balaskp',['data' => $data]);
+    }
+
+    public function lihatbalaskp($id = null){
+        if (!isset($id)) redirect('requestkp'); //redirect jika tidak ada id
+        
+        $data = $this->AkpModel->getbalaskp($id);
+        if(!$data) redirect('requestkp');
+        
+        return $this->load->view('admin/viewbalaskp',['data'=>$data]);
+    }
+
+    public function updatebkp(){
+        switch ($this->input->post('action')) {
+            case 'setuju':
+                $this->AkpModel->bkp();
+                $this->session->set_flashdata('success', 'Update Pengajuan KP Berhasil disimpan');
+                return redirect('balasankp');
+                break;
+    
+            case 'tolak':
+                $this->AkpModel->tolak();
+                $this->session->set_flashdata('success', 'Update Pengajuan KP Berhasil disimpan');
+                return redirect('balasankp');
                 break;
             }
     }

@@ -101,6 +101,11 @@
                 </a>
             </li>
             <li>
+                <a class="<?php if($this->uri->segment(1)=="balasankp"){echo "active";} ?>" href="<?php echo base_url('balasankp');?>">
+                    <i class="si si-cup"></i><span class="sidebar-mini-hide">Permohonan KP</span>
+                </a>
+            </li>
+            <li>
                 <a class="<?php if($this->uri->segment(1)=="seminarkp"){echo "active";} ?>" href="<?php echo base_url('seminarkp');?>">
                     <i class="si si-cup"></i><span class="sidebar-mini-hide">Request Seminar KP</span>
                 </a>

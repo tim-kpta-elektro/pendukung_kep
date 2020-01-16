@@ -48,18 +48,46 @@ class AkpModel extends CI_Model{
         return $this->db->get()->row();
     }
 
-    public function setuju(){
+    public function waiting(){
         $data = array(
-            'status_kp' => 'SETUJU'
+            'status_kp' => 'WAITING'
         );
-        return $this->db->update('kp',$data,array('mahasiswa_id' => $this->input->post('mahasiswa_id')));
+        return $this->db->update('kp',$data,array('id_kp' => $this->input->post('id_kp')));
     }
 
     public function tolak(){
         $data = array(
             'status_kp' => 'TOLAK'
         );
-        return $this->db->update('kp',$data,array('mahasiswa_id' => $this->input->post('mahasiswa_id')));
+        return $this->db->update('kp',$data,array('id_kp' => $this->input->post('id_kp')));
+    }
+
+    public function balaskp(){
+        $this->db->select('*');
+        $this->db->from('kp');
+        $this->db->join('mahasiswa','id_mahasiswa = mahasiswa_id');
+        $this->db->where('status_kp','WAITING');
+        return $this->db->get()->result();
+    }
+
+    public function getbalaskp($id){
+        $this->db->select('*');
+        $this->db->from('kp');
+        $this->db->join('mahasiswa','id_mahasiswa = mahasiswa_id');
+        $this->db->where('status_kp','WAITING');
+        $this->db->where('nim',$id);
+        return $this->db->get()->row();
+    }
+
+    public function bkp(){
+        $data = array(
+            'status_kp' => 'SETUJU',
+            'no_surat' => $this->input->post('no_surat'),
+            'tanggal_surat' => $this->input->post('tanggal_surat'),
+            'tgl_mulai_kp' => $this->input->post('tgl_mulai_kp'),
+            'tgl_selesai_kp' => $this->input->post('tgl_selesai_kp')
+        );
+        return $this->db->update('kp',$data,array('id_kp' => $this->input->post('id_kp')));
     }
 
     public function seminar(){

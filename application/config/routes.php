@@ -74,6 +74,7 @@ $route['pembimbing'] = 'admin/admin';
 $route['daftarmhs'] = 'admin/adminkp';
 $route['requestkp'] = 'admin/adminkp/pengajuankp';
 $route['seminarkp'] = 'admin/adminkp/seminarkp';
+$route['balasankp'] = 'admin/adminkp/balasankp';
 
 //Route Login
 $route['login'] = 'auth/login';

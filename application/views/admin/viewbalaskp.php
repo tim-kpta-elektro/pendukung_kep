@@ -40,7 +40,7 @@
                             <div class="col-lg-3"></div>
                             <div class="col-md-3 col-lg-6">
                                 <!-- Form Labels on top - Default Style -->
-                                <form class="mb-5" action="<?php echo base_url('admin/adminkp/updatekp'); ?>" method="POST">
+                                <form class="mb-5" action="<?php echo base_url('admin/adminkp/updatebkp'); ?>" method="POST">
                                 <h2 class="content-heading border-bottom mb-4 pb-2">Data Diri</h2>
                                     <div class="form-group">
                                         <label for="Nama">Nama</label>
@@ -81,12 +81,21 @@
                                     </div>
                                 <h2 class="content-heading border-bottom mb-4 pb-2">Tanggal Pelaksanaan</h2>
                                     <div class="form-group">
-                                    <label for="Tanggal Mulai">Tanggal Dimulai KP</label>
-                                        <input type="text" class="js-datepicker form-control" id="example-datepicker3" name="tgl_mulai_kp" data-week-start="1" data-autoclose="true" data-today-highlight="true" data-date-format="yyyy-mm-dd" placeholder="yyyy-mm-dd" value="<?php echo $data->tgl_mulai_kp?>" readonly="readonly">
+                                        <label for="Tanggal Mulai">Tanggal Mulai KP</label>
+                                        <input type="text" class="form-control bg-white" id="flatpickr" name="tgl_mulai_kp" value="<?php echo $data->tgl_mulai_kp?>">
                                     </div>
                                     <div class="form-group">
-                                    <label for="Tanggal Mulai">Tanggal Selesai KP</label>
-                                        <input type="text" class="js-datepicker form-control" id="example-datepicker3" name="tgl_selesai_kp" data-week-start="1" data-autoclose="true" data-today-highlight="true" data-date-format="yyyy-mm-dd" placeholder="yyyy-mm-dd" value="<?php echo $data->tgl_selesai_kp?>" readonly="readonly">
+                                        <label for="Tanggal Selesai">Tanggal Selesai KP</label>
+                                        <input type="text" class="form-control bg-white" id="flatpickr" name="tgl_selesai_kp" value="<?php echo $data->tgl_selesai_kp?>">
+                                    </div>
+                                <h2 class="content-heading border-bottom mb-4 pb-2">Balasan Perusahaan</h2>
+                                    <div class="form-group">
+                                    <label for="Tanggal Mulai">Tanggal Balasan</label>
+                                    <input type="text" class="form-control bg-white" id="flatpickr" name="tanggal_surat" >
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="Nomor Balasan">Nomor Balasan</label>
+                                        <input type="text" class="form-control" name="no_surat">
                                     </div>
                                     <div class="form-group">
                                     <!-- <a class="btn btn-primary" href=" echo url('/kp/kerjapraktek/update')?>">SETUJUI</a>
@@ -114,6 +123,10 @@
 
         <!--Codebase JS Core-->
         <?php $this->load->view('layouts/js.php') ?>
-
+        <script>
+            var example = flatpickr('#flatpickr',{
+                dateFormat: 'Y-m-d'
+            });
+        </script>
     </body>
 </html>
