@@ -38,7 +38,7 @@
                 <?php endif; ?> 
                 <div class="block">
                         <div class="block-header block-header-default">
-                            <h3 class="block-title">Daftar Permohonan Kerja Praktek <small>Teknik Elektro</small></h3>
+                            <h3 class="block-title">Daftar Mahasiswa Kerja Praktek <small>Teknik Elektro</small></h3>
                         </div>
                         <div class="block-content block-content-full">
                             <!-- DataTables functionality is initialized with .js-dataTable-full class in js/pages/be_tables_datatables.min.js which was auto compiled from _es6/pages/be_tables_datatables.js -->
@@ -65,7 +65,7 @@
                                         <?php echo $row->perusahaan_nama?>
                                     </td>
                                     <td width="250" style="text-align: center;">
-                                    <a href="<?php echo site_url('admin/adminkp/lihatbalaskp/'.$row->nim) ?>" class="btn btn-sm btn-warning">Update</a>
+                                    <a href="<?php echo site_url('admin/adminkp/lihatlistkp/'.$row->nim) ?>" class="btn btn-sm btn-warning">Update</a>
                                     </td>
                                 </tr>
                                 <?php endforeach; ?>

@@ -49,8 +49,8 @@ class Auth extends CI_Controller {
         $validation = $this->form_validation; //Definisi validation sebagai form_validation
 
         $validation->set_rules('username','Username', 'required'); //cek input dibutuhkan
-        $validation->set_rules('password','Password', 'required');
-		$validation->set_rules('nim','NIM','required');
+        $validation->set_rules('password','Password', 'required|min_length[8]|max_length[30]');
+		$validation->set_rules('nim','NIM','required|is_unique[users.nim]');
 		$validation->set_rules('email','Email','required');
 		$validation->set_rules('level','Level','required');
 

@@ -34,12 +34,15 @@
                             <div class="col-sm-8 col-md-6 col-xl-4">
                                 <!-- jQuery Validation functionality is initialized with .js-validation-signup class in js/pages/op_auth_signup.min.js which was auto compiled from _es6/pages/op_auth_signup.js -->
                                 <!-- For more examples you can check out https://github.com/jzaefferer/jquery-validation -->
+                                <div class="block block-themed block-rounded bg-danger">
+                                    <div class="text-white text-center"><?php echo validation_errors(); ?></div>
+                                </div>
                                 <form action="<?php echo base_url('auth/register') ?>" method="post">
                                     <div class="form-group row">
                                         <div class="col-12">
                                             <div class="form-material floating">
                                                 <input type="text" class="form-control" id="username" name="username">
-                                                <label for="signup-username">Username</label>
+                                                <label for="username">Username</label>
                                             </div>
                                         </div>
                                     </div>

@@ -106,6 +106,14 @@
                 </a>
             </li>
             <li>
+                <a class="<?php if($this->uri->segment(1)=="listkp"){echo "active";} ?>" href="<?php echo base_url('listkp');?>">
+                    <i class="si si-cup"></i><span class="sidebar-mini-hide">List Mahasiswa Kerja Praktek</span>
+                </a>
+            </li>
+            <li class="nav-main-heading">
+                <span class="sidebar-mini-visible">SKP</span><span class="sidebar-mini-hidden">Seminar Kerja Praktek</span>
+            </li>
+            <li>
                 <a class="<?php if($this->uri->segment(1)=="seminarkp"){echo "active";} ?>" href="<?php echo base_url('seminarkp');?>">
                     <i class="si si-cup"></i><span class="sidebar-mini-hide">Request Seminar KP</span>
                 </a>
@@ -137,10 +145,10 @@
                 </a>
             </li>
             <?php endif; ?>
+            <?php if($this->session->userdata('level')=='1'):?>
             <li class="nav-main-heading">
                 <span class="sidebar-mini-visible">TA</span><span class="sidebar-mini-hidden">Tugas Akhir</span>
             </li>
-            <?php if($this->session->userdata('level')=='1'):?>
             <li>
                 <a href="<?php echo base_url('backend/ta');?>">
                     <i class="si si-cup"></i><span class="sidebar-mini-hide">Pengajuan TA</span>

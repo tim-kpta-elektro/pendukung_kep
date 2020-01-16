@@ -92,16 +92,36 @@ class Adminkp extends MY_Controller {
         switch ($this->input->post('action')) {
             case 'setuju':
                 $this->AkpModel->bkp();
-                $this->session->set_flashdata('success', 'Update Pengajuan KP Berhasil disimpan');
+                $this->session->set_flashdata('success', 'Update Permohonan KP Berhasil disimpan');
                 return redirect('balasankp');
                 break;
     
             case 'tolak':
                 $this->AkpModel->tolak();
-                $this->session->set_flashdata('success', 'Update Pengajuan KP Berhasil disimpan');
+                $this->session->set_flashdata('success', 'Update Permohonan KP Berhasil disimpan');
                 return redirect('balasankp');
                 break;
             }
+    }
+
+    public function listkp(){
+        $data =$this->AkpModel->listkp();
+        return $this->load->view('admin/list_kp',['data' => $data]);
+    }
+
+    public function lihatlistkp($id = null){
+        if (!isset($id)) redirect('requestkp'); //redirect jika tidak ada id
+        
+        $data = $this->AkpModel->getlistkp($id);
+        if(!$data) redirect('requestkp');
+        
+        return $this->load->view('admin/viewlistkp',['data'=>$data]);
+    }
+
+    public function updatelistkp(){
+        $this->AkpModel->lkp();
+        $this->session->set_flashdata('success', 'Update Kerja Praktek Berhasil disimpan');
+        return redirect('listkp');
     }
 
     public function seminarkp(){

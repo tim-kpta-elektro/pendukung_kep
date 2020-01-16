@@ -90,6 +90,34 @@ class AkpModel extends CI_Model{
         return $this->db->update('kp',$data,array('id_kp' => $this->input->post('id_kp')));
     }
 
+    public function listkp(){
+        $this->db->select('*');
+        $this->db->from('kp');
+        $this->db->join('mahasiswa','id_mahasiswa = mahasiswa_id');
+        $this->db->where('status_kp','SETUJU');
+        return $this->db->get()->result();
+    }
+
+    public function getlistkp($id){
+        $this->db->select('*');
+        $this->db->from('kp');
+        $this->db->join('mahasiswa','id_mahasiswa = mahasiswa_id');
+        $this->db->where('status_kp','SETUJU');
+        $this->db->where('nim',$id);
+        return $this->db->get()->row();
+    }
+
+    public function lkp(){
+        $data = array(
+            'status_kp' => 'SETUJU',
+            'no_surat' => $this->input->post('no_surat'),
+            'tanggal_surat' => $this->input->post('tanggal_surat'),
+            'tgl_mulai_kp' => $this->input->post('tgl_mulai_kp'),
+            'tgl_selesai_kp' => $this->input->post('tgl_selesai_kp')
+        );
+        return $this->db->update('kp',$data,array('id_kp' => $this->input->post('id_kp')));
+    }
+
     public function seminar(){
         $this->db->select('*');
         $this->db->from('kp');
