@@ -18,7 +18,7 @@ class DashboardModel extends CI_Model{
     public function alumni(){
         $this->db->select('*');
         $this->db->from('mahasiswa');
-        $this->db->where('status_mhs','ALUMNI');
+        $this->db->where('status_mhs','LULUS');
         return $this->db->get()->num_rows();
     }
 
@@ -42,5 +42,13 @@ class DashboardModel extends CI_Model{
         $this->db->where('status_seminarkp','SETUJU');
         $this->db->order_by('tanggal_seminar', 'DESC');
         return $this->db->get()->result();
+    }
+    
+    public function mhs($nim){
+        $this->db->select('*');
+        $this->db->from('mahasiswa');
+        $this->db->join('ref_dosen','pem_akademik = id_dosen');
+        $this->db->where('nim',$nim);
+        return $this->db->get()->row();
     }
 }

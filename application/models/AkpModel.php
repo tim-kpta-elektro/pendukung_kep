@@ -49,8 +49,10 @@ class AkpModel extends CI_Model{
     }
 
     public function waiting(){
+        date_default_timezone_set('Asia/Jakarta');
         $data = array(
-            'status_kp' => 'WAITING'
+            'status_kp' => 'WAITING',
+            'tanggal_acc_permohonan' => date('Y-m-d H:i:s')
         );
         return $this->db->update('kp',$data,array('id_kp' => $this->input->post('id_kp')));
     }
@@ -62,7 +64,7 @@ class AkpModel extends CI_Model{
         return $this->db->update('kp',$data,array('id_kp' => $this->input->post('id_kp')));
     }
 
-    public function balaskp(){
+    public function permohonankp(){
         $this->db->select('*');
         $this->db->from('kp');
         $this->db->join('mahasiswa','id_mahasiswa = mahasiswa_id');
@@ -70,7 +72,15 @@ class AkpModel extends CI_Model{
         return $this->db->get()->result();
     }
 
-    public function getbalaskp($id){
+    public function balasankp(){
+        $this->db->select('*');
+        $this->db->from('kp');
+        $this->db->join('mahasiswa','id_mahasiswa = mahasiswa_id');
+        $this->db->where('status_kp','WAITING');
+        return $this->db->get()->result();
+    }
+
+    public function getbalasankp($id){
         $this->db->select('*');
         $this->db->from('kp');
         $this->db->join('mahasiswa','id_mahasiswa = mahasiswa_id');
@@ -79,18 +89,21 @@ class AkpModel extends CI_Model{
         return $this->db->get()->row();
     }
 
-    public function bkp(){
+    public function pkp(){
+        date_default_timezone_set('Asia/Jakarta');
+
         $data = array(
             'status_kp' => 'SETUJU',
             'no_surat' => $this->input->post('no_surat'),
             'tanggal_surat' => $this->input->post('tanggal_surat'),
             'tgl_mulai_kp' => $this->input->post('tgl_mulai_kp'),
-            'tgl_selesai_kp' => $this->input->post('tgl_selesai_kp')
+            'tgl_selesai_kp' => $this->input->post('tgl_selesai_kp'),
+            'tanggal_acc_permohonan' => date('Y-m-d H:i:s')
         );
         return $this->db->update('kp',$data,array('id_kp' => $this->input->post('id_kp')));
     }
 
-    public function listkp(){
+    public function penugasankp(){
         $this->db->select('*');
         $this->db->from('kp');
         $this->db->join('mahasiswa','id_mahasiswa = mahasiswa_id');
@@ -98,7 +111,7 @@ class AkpModel extends CI_Model{
         return $this->db->get()->result();
     }
 
-    public function getlistkp($id){
+    public function getpenugasankp($id){
         $this->db->select('*');
         $this->db->from('kp');
         $this->db->join('mahasiswa','id_mahasiswa = mahasiswa_id');
@@ -150,5 +163,43 @@ class AkpModel extends CI_Model{
             'status_seminarkp' => 'TOLAK'
         );
         return $this->db->update('seminar_kp',$data,array('kp_id' => $this->input->post('kp_id')));
+    }
+
+    // public function doc(){
+    //     $this->db->select('file_balasan');
+    //     $this->db->from('kp');
+    //     $this->db->join('mahasiswa','id_mahasiswa = mahasiswa_id');
+    //     $this->db->where('status_kp','WAITING');
+    //     return $this->db->get()->result();
+    // }
+
+    public function cetak_pengajuankp($session){
+        $this->db->select('nama_mhs,nim,ipk,sks,perusahaan_nama,perusahaan_almt,perusahaan_jenis,pic,rencana_mulai_kp,rencana_selesai_kp,tgl_ajuan');
+        $this->db->from('kp');
+        $this->db->join('mahasiswa','mahasiswa_id = id_mahasiswa');
+        $this->db->join('ref_dosen','id_dosen = pem_kp');
+        $this->db->where('nim',$session);
+        $this->db->where('status_kp','PENDING');
+        return $this->db->get()->row();
+    }
+
+    public function cetak_permohonan($session){
+        $this->db->select('pic,perusahaan_nama,perusahaan_almt,nama_mhs,nim,rencana_mulai_kp,rencana_selesai_kp');
+        $this->db->from('kp');
+        $this->db->join('mahasiswa','mahasiswa_id = id_mahasiswa');
+        $this->db->join('ref_dosen','id_dosen = pem_kp');
+        $this->db->where('nim',$session);
+        $this->db->where('status_kp','WAITING');
+        return $this->db->get()->row();
+    }
+
+    public function cetak_penugasan($session){
+        $this->db->select('pic,perusahaan_nama,perusahaan_almt,nama_mhs,nim,tgl_mulai_kp,tgl_selesai_kp,no_surat,tanggal_surat');
+        $this->db->from('kp');
+        $this->db->join('mahasiswa','mahasiswa_id = id_mahasiswa');
+        $this->db->join('ref_dosen','id_dosen = pem_kp');
+        $this->db->where('nim',$session);
+        $this->db->where('status_kp','SETUJU');
+        return $this->db->get()->row();
     }
 }

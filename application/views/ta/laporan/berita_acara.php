@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" id="css-main" href="<?php echo base_url('assets/css/bootstrap.min.css');?>">
     <title>Berita Acara TA </title>
     <style type="text/css">
         table.header *{
@@ -88,7 +88,7 @@
                     <img src="http://localhost/kpta/assets/media/logo-uns.png" style="height: 130px;"/>
                 </td>
                 <td style="width: 80%;">
-                    KEMENTRIAN RISET, TEKNOLOGI DAN PENDIDIKAN TINGGI<br />
+                    KEMENTERIAN PENDIDIKAN DAN KEBUDAYAAN<br />
                     UNIVERSITAS SEBELAS MARET<br />
                     FAKULTAS TEKNIK<br />
                     <h5><strong>PROGRAM STUDI TEKNIK ELEKTRO<strong></h5>

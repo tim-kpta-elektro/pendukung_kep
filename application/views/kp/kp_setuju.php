@@ -32,11 +32,15 @@
                 <!-- Page Content -->
                 <div class="content">
                     <!-- Labels on top -->
-                    <a href="<?php echo base_url('backend/kp/cetak_surat')?>" class="btn btn-primary" target="_blank">Surat Pengajuan KP</a>
-                    <br><br>
+                    <!-- <a href="<-?php echo base_url('kerjapraktek/kp/cetak_surat')?>" class="btn btn-primary" target="_blank">Surat Pengajuan KP</a> -->
                     <div class="block">
                         <div class="block-header block-header-default">
-                            <h1 class="block-title" style="text-align: center; color: green;"><b>Disetujui!</b> Selamat melaksanakan kerja praktek.</h1>
+                        <h1 class="block-title" style="text-align: center; color: green;">Pengajuan Kerja Praktek Telah <b>DISETUJUI<b></h1>
+                        </div>
+                    </div>
+                    <div class="block">
+                        <div class="block-header block-header-default">
+                            <h3 class="block-title">Pengajuan Kerja Praktek</h3>
                         </div>
                         <div class="block-content block-content-full">
                             <table class="table">
@@ -83,12 +87,12 @@
                                 <tr>
                                     <td>Tanggal Mulai KP</td>
                                     <td>:</td>
-                                    <td><strong><?php echo $setuju->tgl_mulai_kp?></strong></td>
+                                    <td><strong><?php echo date("d-m-Y", strtotime($setuju->tgl_mulai_kp))?></strong></td>
                                 </tr>
                                 <tr>
                                     <td>Tanggal Selesai KP</td>
                                     <td>:</td>
-                                    <td><strong><?php echo $setuju->tgl_selesai_kp?></strong></td>
+                                    <td><strong><?php echo date("d-m-Y", strtotime($setuju->tgl_selesai_kp))?></strong></td>
                                 </tr>
                             </table>
                         </div>

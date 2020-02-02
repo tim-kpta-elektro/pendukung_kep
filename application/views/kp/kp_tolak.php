@@ -41,10 +41,15 @@
                                 <!-- Default Elements -->
                                 <div class="block">
                                     <div class="block-header block-header-default">
-                                        <h1 class="block-title" style="text-align: center; color: red;">Ditolak! Update Data Kerja Praktek!</h1>
+                                        <h1 class="block-title" style="text-align: center; color: red;">Pengajuan Tugas Akhir Anda <b>DITOLAK<b></h1>
+                                    </div>
+                                </div>
+                                <div class="block">
+                                    <div class="block-header block-header-default">
+                                        <h3 class="block-title">Pengajuan Kerja Praktek</h3>
                                     </div>
                                     <div class="block-content">
-                                        <form action="<?php echo base_url('backend/kp/updatekp') ?>" method="post">
+                                        <form action="<?php echo base_url('kerjapraktek/kp/updatekp') ?>" method="post">
                                             <h2 class="content-heading border-bottom mb-4 pb-2">Data Diri</h2>
                                                 <div class="form-group">
                                                     <label for="Nama">Nama</label>
@@ -90,11 +95,11 @@
                                             <h2 class="content-heading border-bottom mb-4 pb-2">Tanggal Pelaksanaan</h2>
                                                 <div class="form-group">
                                                     <label for="Tanggal Mulai">Tanggal Mulai KP</label>
-                                                    <input type="text" class="form-control bg-white" id="flatpickr" name="tgl_mulai_kp" value="<?php echo $tolak->tgl_mulai_kp ?>">
+                                                    <input type="text" class="form-control bg-white" id="flatpickr" name="rencana_mulai_kp" value="<?php echo $tolak->rencana_mulai_kp ?>">
                                                 </div>
                                                 <div class="form-group">
                                                     <label for="Tanggal Selesai">Tanggal Selesai KP</label>
-                                                    <input type="text" class="form-control bg-white" id="flatpickr" name="tgl_selesai_kp" value="<?php echo $tolak->tgl_selesai_kp?>">
+                                                    <input type="text" class="form-control bg-white" id="flatpickr" name="rencana_selesai_kp" value="<?php echo $tolak->rencana_selesai_kp?>">
                                                 </div>
                                             <div class="form-group row">
                                                 <div class="col-12">

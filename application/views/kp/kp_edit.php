@@ -41,7 +41,7 @@
                                 <!-- Default Elements -->
                                 <div class="block">
                                     <div class="block-content">
-                                        <form action="<?php echo base_url('backend/kp/updatekp') ?>" method="post">
+                                        <form action="<?php echo base_url('kerjapraktek/kp/updatekp') ?>" method="post">
                                             <h2 class="content-heading border-bottom mb-4 pb-2">Data Diri</h2>
                                                 <div class="form-group">
                                                     <label for="Nama">Nama</label>
@@ -87,11 +87,11 @@
                                             <h2 class="content-heading border-bottom mb-4 pb-2">Tanggal Pelaksanaan</h2>
                                                 <div class="form-group">
                                                     <label for="Tanggal Mulai">Tanggal Mulai KP</label>
-                                                    <input type="text" class="form-control bg-white" id="flatpickr" name="tgl_mulai_kp" value="<?php echo $edit->tgl_mulai_kp ?>">
+                                                    <input type="text" class="form-control bg-white" id="flatpickr" name="rencana_mulai_kp" value="<?php echo $edit->rencana_mulai_kp ?>">
                                                 </div>
                                                 <div class="form-group">
                                                     <label for="Tanggal Selesai">Tanggal Selesai KP</label>
-                                                    <input type="text" class="form-control bg-white" id="flatpickr" name="tgl_selesai_kp" value="<?php echo $edit->tgl_selesai_kp?>">
+                                                    <input type="text" class="form-control bg-white" id="flatpickr" name="rencana_selesai_kp" value="<?php echo $edit->rencana_selesai_kp?>">
                                                 </div>
                                             <div class="form-group row">
                                                 <div class="col-12">

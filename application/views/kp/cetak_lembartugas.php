@@ -92,7 +92,7 @@
                     <img src="<?php echo base_url('assets/media/logo-uns.png')?>" style="height: 130px;"/>
                 </td>
                 <td style="width: 80%;" align="center">
-                    KEMENTRIAN RISET, TEKNOLOGI DAN PENDIDIKAN TINGGI<br />
+                    KEMENTERIAN PENDIDIKAN DAN KEBUDAYAAN<br />
                     UNIVERSITAS SEBELAS MARET<br />
                     FAKULTAS TEKNIK<br />
                     <h5><strong>PROGRAM STUDI TEKNIK ELEKTRO<strong></h5>
@@ -143,7 +143,7 @@
                   <tr>
                       <td>Tanggal Kerja Praktek (KP)</td>
                       <td>:</td>
-                      <td><strong><?php echo $data->tgl_mulai_kp?> sd. <?php echo $data->tgl_selesai_kp?> </strong></td>
+                      <td><strong><?php echo date("d-m-Y", strtotime($data->tgl_mulai_kp))?> sd. <?php echo date("d-m-Y", strtotime($data->tgl_selesai_kp))?> </strong></td>
                   </tr>
               </table>
               <br>

@@ -111,7 +111,7 @@
                     <tr>
                         <td>Tanggal Kerja Praktek (KP)</td>
                         <td>:</td>
-                        <td><strong><?php echo $data->tgl_mulai_kp?> sd. <?php echo $data->tgl_selesai_kp?> </strong></td>
+                        <td><strong><?php echo date("d-m-Y", strtotime($data->rencana_mulai_kp))?> sd. <?php echo date("d-m-Y", strtotime($data->rencana_selesai_kp))?> </strong></td>
                     </tr>
                 </table>
                 <br>

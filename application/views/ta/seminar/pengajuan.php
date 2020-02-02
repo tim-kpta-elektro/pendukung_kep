@@ -2,13 +2,7 @@
 <html lang="en" class="no-focus">
 
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, shrink-to-fit=no">
-
     <title>Portal Elektro - Pengajuan TA</title>
-
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-select@1.13.9/dist/css/bootstrap-select.min.css">
 
     <?php $this->load->view('layouts/head.php') ?>
 
@@ -82,7 +76,7 @@
         <!-- Main Container -->
         <main id="main-container">
             <div class="content">
-                <form action="<?php echo base_url('backend/seminarta/pengajuan') ?>" method="post">
+                <form action="<?php echo base_url('tugasakhir/seminarta/pengajuan') ?>" method="post">
                 <h2 class="content-heading">Pengajuan Tugas Akhir</h2>
                 <div class="row">
                     <div class="col-md-6">
@@ -150,10 +144,10 @@
                                 </div>
                                 <div class="form-group">
                                     <label for="acceptor">Ruang:</label>
-                                    <select class="form-control" name="tempat" id="">
-                                        <option value="9" selected="selected" disabled>--- Pilih ---</option>
+                                    <select class="form-control selectpicker" name="tempat" id="tempat" data-live-search="true">
+                                        <option value="">Pilih Tempat</option>
                                         <?php foreach ($ruang as $ruangs): ?>
-                                            <option name="ruang_id" value="<?php echo $ruangs->id_ruang ?>"><?php echo $ruangs->nama_ruang?></option>
+                                            <option name="ruang" value="<?php echo  $ruangs->id_ruang ?>"><?php echo $ruangs->nama_ruang?></option>
                                         <?php endforeach; ?>
                                     </select>
                                 </div>
@@ -175,13 +169,13 @@
                                     <div class="form-group row">
                                         <label class="col-12" for="example-text-input">Judul</label>
                                         <div class="col-md-12">
-                                            <input type="text" class="form-control" id="example-text-input" name="judul" value="<?php echo $ta_setuju->judul ?>" readonly>
+                                            <textarea type="text" class="form-control" id="example-text-input" name="judul" rows="4" readonly><?php echo $ta_setuju->judul?></textarea>
                                         </div>
                                     </div>
                                     <div class="form-group row">
                                         <label class="col-12" for="example-text-input">Abstrak</label>
                                         <div class="col-md-12">
-                                            <input type="text" class="form-control" id="example-text-input" name="abstrak" value="<?php echo $ta_setuju->abstrak ?>" readonly>
+                                            <textarea type="text" class="form-control" id="example-text-input" name="abstrak" rows="4" readonly><?php echo $ta_setuju->abstrak?></textarea>
                                         </div>
                                     </div>
                             </div>
@@ -231,11 +225,6 @@
     <!-- END Onboarding Modal -->
 
     <!--Codebase JS Core-->
-
-    <script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.bundle.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap-select@1.13.9/dist/js/bootstrap-select.min.js"></script>
-
 
     <?php $this->load->view('layouts/js.php') ?>
     <script>

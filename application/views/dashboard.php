@@ -76,6 +76,93 @@
 
                 <!-- Page Content -->
                 <div class="content">
+                    <!-- User Info -->
+                    <div class="bg-image bg-image-bottom" style="background-image: url('<?php echo base_url('assets/media/photos/photo13@2x.jpg')?>');">
+                        <div class="bg-primary-dark-op py-30">
+                            <div class="content content-full text-center">
+                                <!-- Avatar -->
+                                <div class="mb-15">
+                                    <a class="img-link" href="be_pages_generic_profile.html">
+                                        <img class="img-avatar img-avatar96 img-avatar-thumb" src="<?php echo base_url('assets/media/avatars/avatar9.jpg')?>" alt="">
+                                    </a>
+                                </div>
+                                <!-- END Avatar -->
+
+                                <!-- Personal -->
+                                <?php if($this->session->userdata('level')=='1'):?>
+                                <h1 class="h3 text-white font-w700 mb-10"><?php echo $mhs->nama_mhs?></h1>
+                                <h2 class="h3 text-white font-w700 mb-10"><?php echo $mhs->nim?></h2>
+                                <h2 class="h5 text-white-op">
+                                    Angkatan <a class="text-primary-light" href="javascript:void(0)"><?php echo $mhs->angkatan?></a>
+                                </h2>
+                                <?php endif; ?>
+                                <?php if($this->session->userdata('level')=='3' || $this->session->userdata('level')=='4' || $this->session->userdata('level')=='2'):?>
+                                    <h1 class="h3 text-white font-w700 mb-10"><?php echo $_SESSION['username'] ?></h1>
+                                    <h2 class="h3 text-white font-w700 mb-10"><?php echo $_SESSION['email'] ?></h2>
+                                <?php endif; ?>
+                                <!-- END Personal -->
+
+                                <!-- Actions -->
+                                <button type="button" class="btn btn-rounded btn-hero btn-sm btn-alt-success mb-5">
+                                    <i class="fa fa-plus mr-5"></i> Add Friend
+                                </button>
+                                <button type="button" class="btn btn-rounded btn-hero btn-sm btn-alt-primary mb-5">
+                                    <i class="fa fa-envelope-o mr-5"></i> Message
+                                </button>
+                                <!-- END Actions -->
+                            </div>
+                        </div>
+                    </div>
+                    <!-- END User Info -->
+                    <?php if($this->session->userdata('level')=='1'):?>
+                    <!-- Data Diri -->
+                    <h2 class="content-heading">
+                        <button type="button" class="btn btn-sm btn-rounded btn-alt-secondary float-right">View More..</button>
+                        <i class="si si-briefcase mr-5"></i> Data Diri
+                    </h2>
+                    <div class="row invisible" data-toggle="appear">
+                        <!-- Row #1 -->
+                        <div class="col-md-6">
+                            <a class="block" href="javascript:void(0)">
+                                <div class="block-content block-content-full">
+                                    <i class="si si-notebook fa-2x text-body-bg-dark"></i>
+                                    <div class="row pt-10 pb-30 text-center h-50">
+                                        <div class="col-6 border-r">
+                                            <div class="font-size-h3 font-w600 text-primary"><?php echo $mhs->sks?></div>
+                                            <div class="font-size-sm font-w600 text-uppercase text-muted">SKS</div>
+                                        </div>
+                                        <div class="col-6">
+                                            <div class="font-size-h3 font-w600 text-earth"><?php echo $mhs->ipk?></div>
+                                            <div class="font-size-sm font-w600 text-uppercase text-muted">IPK</div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+                        <div class="col-md-6">
+                            <a class="block" href="javascript:void(0)">
+                                <div class="block-content block-content-full">
+                                    <div class="text-right">
+                                        <i class="si si-book-open fa-2x text-body-bg-dark"></i>
+                                    </div>
+                                    <div class="row pt-10 pb-30 text-center h-50">
+                                        <div class="col-6 border-r">
+                                            <div class="font-size-sm font-w600 text-elegance"><?php echo $mhs->nama_dosen?></div>
+                                            <div class="font-size-sm font-w600 text-uppercase text-muted">Pembimbing Akademik</div>
+                                        </div>
+                                        <div class="col-6">
+                                            <div class="font-size-h3 font-w600 text-pulse"><?php echo $mhs->status_mhs?></div>
+                                            <div class="font-size-sm font-w600 text-uppercase text-muted">Status Mahasiswa</div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+                        <!-- END Row #1 -->
+                    </div>
+                    <!-- END Data Diri -->
+                    <?php endif; ?>
+                    <br/>
                     <div class="row invisible" data-toggle="appear">
                         <!-- Row #1 -->
                         <div class="col-6 col-xl-3">

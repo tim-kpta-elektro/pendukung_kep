@@ -40,7 +40,7 @@
                             <img src="<?php echo base_url('assets/media/logo-uns.png');?>" style="height: 130px;"/>
                         </td>
                         <td style="width: 80%;" align="center">
-                            KEMENTRIAN RISET, TEKNOLOGI DAN PENDIDIKAN TINGGI<br />
+                            KEMENTERIAN PENDIDIKAN DAN KEBUDAYAAN<br />
                             UNIVERSITAS SEBELAS MARET<br />
                             FAKULTAS TEKNIK<br />
                             <h5><strong>PROGRAM STUDI TEKNIK ELEKTRO<strong></h5>

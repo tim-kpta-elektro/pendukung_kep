@@ -32,7 +32,11 @@
                 <!-- Page Content -->
                 <div class="content">
                     <!-- Labels on top -->
-                    <a href="<?php echo base_url('kp/cetak_pengajuankp')?>" class="btn btn-primary" target="_blank">Lembar Pengajuan KP</a>
+                    <div class="block">
+                        <div class="block-header block-header-default">
+                            <h1 class="block-title" style="text-align: center; color:orange ;">Pengajuan Berhasil Disimpan<br><b>Menunggu Persetujuan Admin Kerja Praktek<b></h1>
+                        </div>
+                    </div>
                     <a href="<?php echo base_url('kp/cetak_form')?>" class="btn btn-primary" target="_blank">Form Konsultasi KP</a>
                     <br><br>
                     <?php if ($this->session->flashdata('success')): ?>
@@ -42,7 +46,7 @@
                     <?php endif; ?> 
                     <div class="block">
                         <div class="block-header">
-                            <h1 class="block-title" style="text-align: center; color: red;">Menunggu Persetujuan Admin Kerja Praktek</h1>
+                            <h3 class="block-title">Pengajuan Kerja Praktek</h3>
                         </div>
                         <div class="block-content block-content-full">
                             <table class="table">
@@ -89,17 +93,17 @@
                                 <tr>
                                     <td>Tanggal Mulai KP</td>
                                     <td>:</td>
-                                    <td><strong><?php echo $data->tgl_mulai_kp?></strong></td>
+                                    <td><strong><?php echo date("d-m-Y", strtotime($data->rencana_mulai_kp))?></strong></td>
                                 </tr>
                                 <tr>
                                     <td>Tanggal Selesai KP</td>
                                     <td>:</td>
-                                    <td><strong><?php echo $data->tgl_selesai_kp?></strong></td>
+                                    <td><strong><?php echo date("d-m-Y", strtotime($data->rencana_selesai_kp))?></strong></td>
                                 </tr>
                             </table>
                             <div class="row justify-content-center">
                                 <div class="col-md-3">
-                                    <a href="<?php echo base_url('backend/kp/editkp')?>" class="btn btn-primary">Edit</a>
+                                    <a href="<?php echo base_url('kerjapraktek/kp/editkp')?>" class="btn btn-primary">Edit</a>
                                     <!-- <button type="submit" class="btn btn-primary">Edit</button> -->
                                 </div>
                             </div>

@@ -47,7 +47,7 @@
                                         <div class="row">
                                         <div class="col-lg-3"></div>
                                         <div class="col-md-3 col-lg-6">
-                                        <form action="<?php echo base_url('backend/kp/store') ?>" method="post">
+                                        <form action="<?php echo base_url('kerjapraktek/kp/store') ?>" method="post">
                                             <h2 class="content-heading border-bottom mb-4 pb-2">Data Diri</h2>
                                                 <div class="form-group">
                                                     <label for="Nama">Nama</label>
@@ -87,17 +87,17 @@
                                                     <input type="text" class="form-control" name="perusahaan_jenis" placeholder="Masukkan Jenis Usaha Perusahaan..">
                                                 </div>
                                                 <div class="form-group">
-                                                    <label for="PIC">PIC</label>
+                                                    <label for="PIC">PIC (Jabatan)</label>
                                                     <input type="text" class="form-control" name="pic" placeholder="Masukkan PIC Perusahaan..">
                                                 </div>
                                             <h2 class="content-heading border-bottom mb-4 pb-2">Tanggal Pelaksanaan</h2>
                                                 <div class="form-group">
                                                     <label for="Tanggal Mulai">Tanggal Mulai KP</label>
-                                                    <input type="text" class="form-control bg-white" id="flatpickr" name="tgl_mulai_kp" placeholder="Y-m-d">
+                                                    <input type="text" class="form-control bg-white" id="flatpickr" name="rencana_mulai_kp" placeholder="Y-m-d">
                                                 </div>
                                                 <div class="form-group">
                                                     <label for="Tanggal Selesai">Tanggal Selesai KP</label>
-                                                    <input type="text" class="form-control bg-white" id="flatpickr" name="tgl_selesai_kp" placeholder="Y-m-d">
+                                                    <input type="text" class="form-control bg-white" id="flatpickr" name="rencana_selesai_kp" placeholder="Y-m-d">
                                                 </div>
                                             <div class="form-group row">
                                                 <div class="col-12">

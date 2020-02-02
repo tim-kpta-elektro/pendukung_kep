@@ -113,7 +113,7 @@
                                             </a>
                                         </div>
                                         <div class="col-6">
-                                            <a class="btn btn-block btn-noborder btn-rounded btn-alt-secondary" href="{{url('/login')}}">
+                                            <a class="btn btn-block btn-noborder btn-rounded btn-alt-secondary" href="<?php echo base_url('auth');?>">
                                                 <i class="si si-login text-muted mr-10"></i> Sign In
                                             </a>
                                         </div>

@@ -57,25 +57,26 @@ $route['translate_uri_dashes'] = FALSE;
 $route['dashboard'] = 'backend/dashboard';
 
 //Route Kerja Praktek
-$route['pengajuankp'] = 'backend/kp';
-$route['kp/cetak_pengajuankp'] = 'backend/kp/cetak_pengajuankp';
-$route['kp/cetak_form'] = 'backend/kp/cetak_form';
-$route['kp/cetak_lmbrtugas'] = 'backend/kp/cetak_lmbrtugas';
-$route['kp/cetak_formnilai'] = 'backend/kp/cetak_formnilai';
+$route['pengajuankp'] = 'kerjapraktek/kp';
+//$route['adminkp/cetak_pengajuankp'] = 'admin/adminkp/cetak_pengajuankp';
+$route['kp/cetak_form'] = 'kerjapraktek/kp/cetak_form';
+$route['kp/cetak_lmbrtugas'] = 'kerjapraktek/kp/cetak_lmbrtugas';
+$route['kp/cetak_formnilai'] = 'kerjapraktek/kp/cetak_formnilai';
 
 //Route Seminar Kerja Praktek
-$route['pengajuansemkp'] = 'backend/semkp';
-$route['semkp/cetak_pengajuansemkp'] = 'backend/semkp/cetak_pengajuansemkp';
-$route['semkp/cetak_undangan'] = 'backend/semkp/cetak_undangan';
-$route['semkp/cetak_daftarhadir'] = 'backend/semkp/cetak_daftarhadir';
+$route['pengajuansemkp'] = 'seminar/semkp';
+$route['semkp/cetak_pengajuansemkp'] = 'seminar/semkp/cetak_pengajuansemkp';
+$route['semkp/cetak_undangan'] = 'seminar/semkp/cetak_undangan';
+$route['semkp/cetak_daftarhadir'] = 'seminar/semkp/cetak_daftarhadir';
 
 //Route Admin KP
 $route['pembimbing'] = 'admin/admin';
 $route['daftarmhs'] = 'admin/adminkp';
-$route['requestkp'] = 'admin/adminkp/pengajuankp';
+$route['pengajuan'] = 'admin/adminkp/pengajuankp';
 $route['seminarkp'] = 'admin/adminkp/seminarkp';
+$route['permohonankp'] = 'admin/adminkp/permohonankp';
 $route['balasankp'] = 'admin/adminkp/balasankp';
-$route['listkp'] = 'admin/adminkp/listkp';
+$route['penugasankp'] = 'admin/adminkp/penugasankp';
 
 //Route Login
 $route['login'] = 'auth/login';

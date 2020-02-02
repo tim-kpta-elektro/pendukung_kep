@@ -79,15 +79,27 @@ class TaModel extends CI_Model {
         return $query->result();
     }
 
+    public function peminatan($id_ta){
+        $this->db->select('*');
+        $this->db->from('peminatan');
+        $this->db->join('ta','peminatan.id=ta.kode_peminatan');
+        $this->db->where('ta.id_ta',$id_ta);
+        $query=$this->db->get();
+        return $query->row();
+    }
+
 
     public function save_ta(){
+        date_default_timezone_set('Asia/Jakarta');
+
         $data = array(
             'nim_mhs' => $this->input->post('nim'),
             'judul' => $this->input->post('judul'),
             'abstrak' => $this->input->post('abstrak'),
-            'tgl_pengajuan' => $this->input->post('tgl_pengajuan'),
+            'tgl_pengajuan' => date('Y-m-d H:i:s'),
+            'updated_at' => date('Y-m-d H:i:s'),
             'status_ta' => $this->input->post('status_ta'),
-            // 'kode_peminatan' => $this->input->post('kode_peminatan'),
+            'kode_peminatan' => $this->input->post('kode_peminatan'),
         );
 
 
@@ -122,13 +134,14 @@ class TaModel extends CI_Model {
     }
 
     public function update_ta(){
+        date_default_timezone_set('Asia/Jakarta');
         $data = array(
             'nim_mhs' => $this->input->post('nim'),
             'judul' => $this->input->post('judul'),
             'abstrak' => $this->input->post('abstrak'),
-            'tgl_pengajuan' => $this->input->post('tgl_pengajuan'),
+            'updated_at' => date('Y-m-d H:i:s'),
             'status_ta' => $this->input->post('status_ta'),
-            // 'kode_peminatan' => $this->input->post('kode_peminatan'),
+            'kode_peminatan' => $this->input->post('kode_peminatan'),
         );
 
         $id_ta  = array('id_ta'=>$this->input->post('id_ta'));
@@ -166,6 +179,26 @@ class TaModel extends CI_Model {
         $this->db->from('ta');
         $query=$this->db->get();
         return $query->result();
+    }
+
+    public function matakuliah(){
+        $this->db->select('*');
+        $this->db->from('ref_mata_kuliah');
+        $this->db->order_by('nama', 'ASC');
+        return $this->db->get()->result();
+    }
+
+    public function get_peminatan(){
+        $this->db->select('*');
+        $this->db->from('peminatan');
+        return $this->db->get()->result();
+    }
+    public function get_matakuliah($nama){
+        $this->db->select('*');
+        $this->db->from('ref_mata_kuliah');
+        $this->db->order_by('nama', 'ASC');
+        $this->db->where('nama',$nama);
+        return $this->db->get()->result();
     }
 
 }

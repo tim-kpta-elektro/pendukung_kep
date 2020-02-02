@@ -192,19 +192,19 @@
                                     <div class="form-group row">
                                         <label class="col-12" for="example-text-input">Judul</label>
                                         <div class="col-md-12">
-                                            <input type="text" class="form-control" id="example-text-input" name="judul" value="<?php echo $ta->judul?>" readonly>
+                                            <textarea type="text" class="form-control" id="example-text-input" name="judul" rows="4" readonly><?php echo $ta->judul?></textarea>
                                         </div>
                                     </div>
                                     <div class="form-group row">
                                         <label class="col-12" for="example-text-input">Abstrak</label>
                                         <div class="col-md-12">
-                                            <input type="text" class="form-control" id="example-text-input" name="abstrak" value="<?php echo $ta->abstrak?>" readonly>
+                                            <textarea type="text" class="form-control" id="example-text-input" name="abstrak" rows="4" readonly><?php echo $ta->abstrak?></textarea>
                                         </div>
                                     </div>
                                     <div class="form-group row">
                                         <label class="col-12" for="example-text-input">Tanggal Pengajuan</label>
                                         <div class="col-md-12"> 
-                                            <input type="text" class="form-control"  name="tgl_pengajuan" value="<?php echo $ta->tgl_pengajuan?>" readonly>
+                                            <input type="text" class="form-control"  name="tgl_pengajuan" value="<?php echo date("d-m-Y", strtotime($ta->tgl_pengajuan))?>" readonly>
                                         </div>
                                     </div>
                             </div>
